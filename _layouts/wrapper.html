@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ {% include header.html %}
+</head>
+
+    <body>
+
+
+        {% include bodi.html color="blue"%}
+
+        <p>o conteudo vem do wrapper </p>
+        {{ content }}
+
+
+        <p>
+            {% include pegar-assets.html color="blue"%}
+        </p>
+
+    </body>
+
+    <footer>
+
+    </footer>
+
+</html>

@@ -30,6 +30,26 @@ theme: minima
 plugins:
   - jekyll-feed
 
+
+#   # --- Collections ---
+# collections:
+#   Python:          { output: true }
+
+#   # Python
+ 
+
+# defaults:
+#  -
+#   scope:
+#      path:
+#       values:
+#         layout: post
+  
+#  - scope:              { path: "", type: "Python" }
+#     values:
+#       layout:           "post"
+#       can_contribute:   false
+
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
@@ -41,3 +61,5 @@ plugins:
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# bundle isntall instala todas as gens do gem file 

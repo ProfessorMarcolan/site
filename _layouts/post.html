@@ -1,0 +1,29 @@
+---
+    layout: "wrapper"
+    author: "Joao"
+---
+
+{%if page.title == "Aula 2" %}
+    This is the firs post 
+
+{% endif %}
+
+
+
+
+<h1>This is a post</h1>
+<hr>
+<h2>{{ layout.author }}</h2>
+<p> Adiciona o autor do layout</p>
+
+
+<h2>{{ page.title }}</h2>
+
+<p>
+    Adiciona o titulo da pagian
+</p>
+
+<h2>{{ page.author }}</h2>
+<p> Adiciona o autor da pagina</p>
+
+{{ content }}
