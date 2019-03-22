@@ -25,3 +25,5 @@ end
 print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
+
+bundle exec jekyll serve
