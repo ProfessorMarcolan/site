@@ -1,0 +1,153 @@
+<p>
+ Nesse tutorial iremos discutir sobre o Princípio da responsabilidade única. Ele é um dos cinco princípios que tem a intenção de tornar o software mais compreensivo, flexível e fácil de manter.  Esses princípios foram promovidos por Robert C. Martin. Martin é um dos
+ <a href="http://www.professormarcolan.com.br/valores-da-metodologia-agile/ " rel="noopener" target="_blank">
+  defensores dos valores Agile
+ </a>
+ .  Esse principio faz parte do
+ <a href="http://www.professormarcolan.com.br/tag/solid/ " rel="noopener" target="_blank">
+  acrônimo SOLID introduzidos por Michael Feathers
+ </a>
+ . Nos tutoriais passados discutimos
+ <a href="http://www.professormarcolan.com.br/os-sintomas-de-um-codigo-que-cheira-mal/ " rel="noopener" target="_blank">
+  sobre sintomas de um código que cheira mal
+ </a>
+ e em um próximo iremos listar as principais causas que fazem o código cheirar mal. Os principios SOLID servem para prevenir e combater que seu código possua mal cheiros
+</p>
+<h2>
+ Principio da responsabilidade Unica (Single responsibility principle)
+</h2>
+<p>
+ O principio da responsabilidade unica vem da premissa que todos os módulos ou classes devem ter apenas uma responsabilidade sobre uma única parte ou funcionalidade provida pelo software. Todos os serviços das classes ou módulo devem estar alinhadas com a responsabilidade definida. Martin define o termo responsabilidade como razão para mudar. Então, esse principio defende que uma classe ou módulo deve ter apenas uma razão para mudar (ser reescrito).
+</p>
+<h2>
+ Exemplo didátido do principio da responsabildiade única
+</h2>
+<p>
+ Para melhor exemplificar esse principio iremos criar uma classe contendo um código em Python de um jogo qualquer. O jogo didático proposto possui um método no qual gerencia a lógica do jogo,  um método responsável por salvar o progresso do jogador e um ultimo método responsável por carregar o progresso do jogador. Inicialmente o programador produz o código 1
+</p>
+<p>
+ <pre class="brush: python; title: ; notranslate" title="">
+    #código 1 - código que fere o principio da responsabilidade única
+    class Jogo():
+        def __init__(self):
+            """construtor do jogo"""
+            print("inicializou a classe!")
+
+        def calcularFisica(self):
+            print("calculando a física do jogo")
+
+
+        def gravarArquivo(self):
+            print("gravando o estado corrente do jogo")
+
+        def carregarArquivo(self):
+            print("carrega o estado corrente do jogo")
+
+    </pre>
+</p>
+<p>
+ Ao analisar o código produzido da para perceber que a classe “jogo” produzida está gerenciando duas responsabilidades diferentes. A primeira responsabilidade que ela está gerenciando é a de manter e processar o jogo- de realizar a lógica do jogo. A segunda responsabilidade que essa classe está lidando é a de gerenciar a persistência dos dados do jogo – dos arquivos permanentes do jogo. Sendo assim, a classe “jogo” está ferindo o principio da responsabilidade única pois ela tem duas razões para mudar.
+</p>
+<h3>
+ Seguindo o principio da responsabilidade única
+</h3>
+<p>
+ Agora iremos refatorar a classe “jogo” para que não fira o principio da responsabilidade uníca. Como análisado anteriormente a classe “jogo” tem dois motivos para mudar. Então, iremos implementar uma classe para cada responsabilidade. Uma classe irá ter a responsabilidade de manter a logica/processamento do jogo e uma outra classe sera responsável por lidar com a persistência dos dados desse jogo. Com isso geramos o código em python a abaixo.
+</p>
+<p>
+ <pre class="brush: python; title: ; notranslate" title="">
+    #código 2-classes seguindo o principio da responsabilidade única
+    class JogoProcessamento(object):
+        def __init__(self):
+        """ contrutor de um objeto que contem a lógica do jogo"""
+            print("inicializou a classe!")
+
+        def calcularFisica(self):
+            print("calculando a física do jogo")
+
+
+    class JogoPersistencia(object):
+        def __init__(self):
+        """contrutor de um objeto que lida com a persistencia dos dados desse jogo"""
+            print("inicializou a classe!")
+
+        def gravarArquivo(self):
+            print("gravando o estado corrente do jogo")
+
+        def carregarArquivo(self):
+            print("carrega o estado corrente do jogo")
+
+    </pre>
+</p>
+<p>
+ Agora observando o código 2, pode-se perceber que cada uma das classes implementadas está tendo uma única razão para mudar. Caso o programador queira implementar uma nova lógica no jogo ele precisa apenas alterar a classe
+ <i>
+  JogoProcessamento
+ </i>
+ e caso ele queira alterar a forma de persistencia dos dados ele precisa apenas alterar a classe
+ <i>
+  JogoPersistencia
+ </i>
+ .
+</p>
+<h2>
+ Principio do OPEM CLOSE dos principios SOLID
+</h2>
+<p>
+ Nesse tutorial discutimos o principio da responsabilidade unica.
+ <a href="https://github.com/jmarcolan/ProfessorMarcolan/tree/master/SOLID/OpenClose " rel="noopener" target="_blank">
+  O código você consegue clonar pelo github
+ </a>
+ . No próximo tutorial dos princípios SOLID iremos discutir sobre o princípio
+ <i>
+  “OPEN/CLOSE”
+ </i>
+ .   Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Bibliografia
+</h2>
+<table>
+ <tr>
+  <th>
+   [1]MARTIN, Robert C. Agile software development: principles, patterns, and practices. Prentice Hall, 2002.
+  </th>
+  <th>
+   <iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=BR&amp;source=ac&amp;ref=qf_sp_asin_til&amp;ad_type=product_link&amp;tracking_id=jmarcolan-20&amp;marketplace=amazon&amp;region=BR&amp;placement=0135974445&amp;asins=0135974445&amp;linkId=5b087b063be8b55ba91acba0a8660f52&amp;show_border=false&amp;link_opens_in_new_window=false&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width:120px;height:240px;">
+    <br/>
+   </iframe>
+  </th>
+ </tr>
+ <tr>
+  <th>
+   [2] http://www.agilemodeling.com/essays/agileDocumentation.htm
+  </th>
+  <th>
+  </th>
+ </tr>
+ <tr>
+  <th>
+   [3] https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+  </th>
+  <th>
+  </th>
+ </tr>
+ <tr>
+  <th>
+   [4]MARTIN, Robert C. Clean code: a handbook of agile software craftsmanship. Pearson Education, 2009.
+  </th>
+  <th>
+   <iframe frameborder="0" marginheight="0" marginwidth="0" scrolling="no" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=BR&amp;source=ac&amp;ref=qf_sp_asin_til&amp;ad_type=product_link&amp;tracking_id=jmarcolan-20&amp;marketplace=amazon&amp;region=BR&amp;placement=B001GSTOAM&amp;asins=B001GSTOAM&amp;linkId=916f769b3a972e16da38672c9c439a71&amp;show_border=false&amp;link_opens_in_new_window=false&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width:120px;height:240px;">
+    <br/>
+   </iframe>
+  </th>
+ </tr>
+</table>

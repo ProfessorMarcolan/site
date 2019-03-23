@@ -1,0 +1,288 @@
+<p>
+ O paradigma da Programação orientada ao objeto é uma das formas mais efetivas de escrever softwares[4]. Se você utilizar de forma correta
+ <a href="https://www.professormarcolan.com.br/tag/agile/" rel="noopener" target="_blank">
+  você consegue evitar que seus códigos cheirem mal
+ </a>
+ . Várias linguagens de programação permitem utilizar a programação orientada ao objeto. Aqui você pode encontrar
+ <a href="https://www.professormarcolan.com.br/tag/java/" rel="noopener" target="_blank">
+  tutoriais de java sobre a programação orientada ao objeto
+ </a>
+ . Agora para o Python essa ideia é ainda mais central, porque como veremos mais para frente “tudo” é considerado um objeto. Então, nessa linha de tutoriais iremos entender como funciona esse paradigma de programação e como criar nossos próprios objetos.
+</p>
+<h2>
+ Paradigma de orientação ao objeto em Python
+</h2>
+<p>
+ No paradigma da orientação ao objeto você
+ <b>
+  escreve programas a partir da criação de classes
+ </b>
+ . Podemos definir as classes como uma representação, um reprodução ou um modelo. As classes representam situações/coisas. Quando você escreve uma
+ <b>
+  classe
+ </b>
+ , você define um comportamento geral que toda uma categoria de objetos pode ter. Quando você constrói um objeto utilizando a classe você automaticamente equipa esse objeto com todos os comportamentos gerais. As classe tem dados e métodos. Para cada objeto você pode setar seus traços únicos [4]. Uma analogia didática seria dizer que as classes são como as receitas de um bolo, os objeto são o próprio bolo, os atributos são os ingredientes e os métodos são as ações para o preparo desse bolo.
+</p>
+<p>
+</p>
+<center>
+ <img alt="O que é uma classe e o que é um objeto" height="500" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/03/ClasseObjetos.png" title="O que é uma classe e o que é um objeto" width="400"/>
+</center>
+Classe (receita do bolo) e seus objetos (bolos)
+<p>
+</p>
+<h2>
+ Classe em Python
+</h2>
+<p>
+ O processo de
+ <b>
+  instanciação
+ </b>
+ é o processo de
+ <b>
+  construir um objeto a partir de uma classe
+ </b>
+ . Você
+ <b>
+  trabalha
+ </b>
+ com instâncias da classe
+ <b>
+  (os objetos)
+ </b>
+ . Nesse tutorial iremos aprender a criar uma classe em Python assim como instanciar ela. Para melhor acompanhar esse tutoriais
+ <a href="https://www.professormarcolan.com.br/atom-ide-para-python-gratis/" rel="noopener" target="_blank">
+  instale o Atom e configure ele para ser uma IDE do Python
+ </a>
+ . Você pode especificar as informações que serão armazenadas na instancia (objeto) e definir quais ações quer aplicar nessas instâncias.
+</p>
+<h3>
+ Criando uma Classe em Python
+</h3>
+<p>
+ Definir uma classe em python é bem simples. Uma classe em Python começa com a palavra reservada
+ <b>
+  <i>
+   class
+  </i>
+ </b>
+ e em seguida pelo
+ <b>
+  nome da classe
+ </b>
+ seguido pelos
+ <b>
+  <i>
+   parenteses ( () )
+  </i>
+ </b>
+ e dos
+ <b>
+  <i>
+   dois pontos (:)
+  </i>
+ </b>
+ . A partir da definição do nome da classe tudo dentro da
+ <b>
+  identação
+ </b>
+ (quatro espaços) após a prototipação
+ <b>
+  pertence a classe
+ </b>
+ . E a primeira linha de código sem a identação está fora da classe. Você pode uma classe simples no código 1.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  #código 1
+class PrimeiraClasse():
+pass # A palavra reservada pass não fas nada.
+ </code>
+</div>
+<p>
+ Essa classe ainda não possui nenhum método ou dado. A palavra reservada
+ <b>
+  <i>
+   pass
+  </i>
+ </b>
+ não faz nada. Ela é silenciosamente ignorada e geralmente é adicionada quando o programador estiver trabalhando em um código novo ou então quando o programador quer permitir abstrações como veremos mais para frente.
+</p>
+<h3>
+ Instanciando uma classe em Python para criar um objeto
+</h3>
+<p>
+ Pelo código 1 escrevemos nossa primeira classe. Agora no código 2 iremos
+ <b>
+  instanciar
+ </b>
+ essa classe para criar um novo objeto dessa classe. Para isso iremos criar uma variável p1 e atribuir ela a classe “PrimeiraClasse”.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="pre-exercise-code">
+  #código 1
+class PrimeiraClasse():
+pass # A palavra reservada pass não fas nada.
+ </code>
+ <code data-type="sample-code">
+  #código 2 Instanciando um novo objeto
+
+p1 = PrimeiraClasse()
+
+print(type(p1))
+#
+  <class>
+  </class>
+ </code>
+</div>
+<p>
+ A linha 3 estamos instanciando um novo objeto. Como pode-se observar instanciar classes em Python é bem direto. Basta pensa-la como uma função que retorna um novo objeto. Na linha 4 estamos imprimindo o tipo da variável p1. Como observaremos a saída nos dirá que é uma variável do tipo “PrimeiraClasse”. .
+</p>
+<h2>
+ Métodos construtores e destrutores em Python
+</h2>
+<p>
+ Em outras linguagens que possuem o paradigma da orientação ao objeto (e.g. c++) os objetos possuem dois métodos especiais: o método que é invocado pelo sistema quando se cria um objeto e o método que o sistema chama quando se deleta um objeto. Isso é feito porque diferentes objetos necessitam de diferentes passos para serem construídos e destruídos. Em uma analogia didática é pensar como pensar na diferença entre os passos necessários para construir uma casa em relação a um carro. E eles também possuem passos bem diferentes para serem destruídos.
+</p>
+<p>
+ O método que é chamado para criar o objeto é o construtor e o método que é invocado quando é necessário exclui-lo é o destrutor. Em outras linguagens isso é um tópico super importante pois os programas podem possuir vazamento de memória caso esses métodos sejam implementados de forma inapropriada. O Python retira um pedaço desse trabalho/responsabilidade do programador através da ideia do método inicializador (
+ <b>
+  __init__
+ </b>
+ ).
+</p>
+<h2>
+ O método inicializador __init__
+</h2>
+<p>
+ O Python te permite instruir a nova criação de um objeto com um método inicializador chamado
+ <b>
+  __init__
+ </b>
+ . O método
+ <b>
+  __init__
+ </b>
+ não é o construtor. O método construtor chama o método
+ <b>
+  ___init__
+ </b>
+ caso haja um implementado. Em Python o objeto já esta construído quando ele chama o método inicializador
+ <b>
+  <i>
+   __init__()
+  </i>
+ </b>
+ . O inicializador apenas configura o já criado objeto antes desse objeto retornar a quem solicitou esse novo objeto. É por isso que é possível construir objetos em Python sem precisar implementar esse método em seu código. No código 3 iremos modificar a classe “PrimeiraClasse” para constar com o método
+ <b>
+  __init__
+ </b>
+ . E novamente iremos instanciar um objeto usando essa classe.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  #código 3 - inicializando uma classe
+class PrimeiraClasse():
+def __init__(self):
+print("inicializou nosso objeto")
+
+p1 =PrimeiraClasse()
+#inicializou nosso objeto
+ </code>
+</div>
+<p>
+ Agora ao rodar o código 3 percebemos que na tela estará impresso a mensagem “inicializou nosso objeto”. Isso acontece porque quando instanciamos um novo objeto o Python invoca o construtor do objeto que por sua vez chama o nosso método inicializador. E no nosso método inicializador possui uma função de escrever na tela ( print ) que tem como entrada um argumento
+ <i>
+  string
+ </i>
+ . Observando bem o nosso método __init__() também possui um argumento de entrada o
+ <i>
+  self
+ </i>
+</p>
+<h2>
+ O argumento
+ <i>
+  self
+ </i>
+ dentro da classe em python
+</h2>
+<p>
+ Quando você definir os métodos da sua classe você explicitamente deve listar o argumento “self” como o primeiro argumento de cada método, incluindo o método __init__. E como veremos mais para frente isso também deve ser feito quando você chamar um método de uma superclasse (classe pai, classe base). Porém, quando você chamar os métodos de fora da classe você não precisa adicionar o parâmetro “self”. Você pode pular totalmente esse argumento. O Python vai adicionar de forma automática a referencia da instância para você.[3] Isso vai parecer confuso de inicio mas isso não é feito de forma inconsistente. É feito de forma consistente porque o Python
+ <a href="https://stackoverflow.com/questions/114214/class-method-differences-in-python-bound-unbound-and-static" rel="noopener" target="_blank">
+  confia na distinção entre métodos bound e unbound
+ </a>
+ . [3]
+</p>
+<h2>
+ Criando um método para o objeto
+</h2>
+<p>
+ Iremos agora modificar nossa classe “PrimeiraClasse” para ela ter um método implementado por nós e vamos acessar esse método de fora da classe. Para isso segue o código 4.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  #código 4 - criando um meotodo dentro da classes
+#invocando esse metodo de fora da classe.
+class PrimeiraClasse():
+def __init__(self):
+print("inicializou nosso objeto")
+
+def primeiroMetodo(self):
+print("primeiro método implementado")
+
+p1 =PrimeiraClasse()
+#inicializou nosso objeto
+p1.primeiroMetodo()
+#primeiro método implementado
+ </code>
+</div>
+<p>
+ Observando o código 4 pode-se perceber que dentro da classe o método “primeiroMetodo” possui como argumento o parâmetro “self” porém quando invocamos ela fora da classe não passamos nenhum argumento. Para acessar o método da instância utilizamos o operador
+ <i>
+  ponto (.)
+ </i>
+ . O operador ponto
+ <i>
+  ponto
+ </i>
+ é o operador que é usado para acessar os métodos e os dados da instância. Quando invocamos o método “priemiroMetodo” percebemos que no prompt de comando esta escrita a frase “primeiro método implementado ” .
+</p>
+<h2>
+ Adicionando atributos a um objeto
+</h2>
+<p>
+ Nesse tutorial você aprendeu como criar uma classe, como criar um método para essa classe e como invocar os métodos utilizando o operador ponto. No próximo tutorial vamos nos aprofundar em como adicionar atributos a um objeto em Python. No próximo iremos discutir como facilitar o uso de suas classes utilizando o recurso do
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-recurso-do-encapsulamento-em-python/">
+  encapsulamento no Python.
+ </a>
+ Todas as classes funcionam da mesma forma em Python. Então depois de entender como uma classe funciona você vai entender todas as outras. Caso você não tenha entendido algo, poste sua duvida nos comentários. Para seguir as atualizações
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ . Esse código está disponível no github
+</p>
+<h2>
+ Bibliografia
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+</ul>

@@ -1,0 +1,259 @@
+<p>
+ No post passado
+ <a href="https://professormarcolan.com.br/introducao-a-programacao-orientada-ao-objeto-em-python/" rel="noopener" target="_blank">
+  discutimos sobre os aspectos iniciais da programação orientada ao objeto
+ </a>
+ . E em outro post
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
+  discutimos como criar uma classe e como instanciar ela para criar um objeto.
+ </a>
+ Neste tutorial, vamos nos aprofundar em na relação de composição em Python. E discutir como usar essa relação da programação orientada a objetos.
+</p>
+<h2>
+ Relacionamentos entre classes.
+ <br/>
+</h2>
+<p>
+ Classes isoladas não fornecem muita funcionalidade a um sistema. Geralmente as classes que compõem um software tem relacionamentos com outras classes. A grande vantagem dos relacionamentos entre classes é a de poder criar classes mais complexas utilizando objetos de classes menos complexas.
+</p>
+<p>
+ O Unified Modeling Language  (UML) fornece várias maneiras de representar relacionamentos entre classes. Cada relacionamento representa um tipo diferente de conexão entre classes. Porém, nesse tutorial iremos discutir apenas o relacionamento de composição entre as classes.[6]
+</p>
+<h2>
+ Quando usar o relacionamento de composição em programação orientada ao objeto
+</h2>
+<p>
+ A composição geralmente é uma boa escolha quando um objeto faz parte de outro objeto. Por exemplo, uma calculadora tem componentes que fazem parte dela (display, teclado, unidade lógica) que podem ser programados de forma distinta. Ao fim da programação dessas classes menos complexas podemos utiliza-los para criar a calculador. O relacionamento de composição geralmente encontrado quando uma classe A (menos complexa) “…é parte de…” uma classe B (mais complexa).
+</p>
+<h3>
+ Exemplo de composição em Python
+</h3>
+<p>
+ Nesse tutorial iremos construir uma calculadora didática. Essa calculadora tem 4 objetos: uma bateria, um teclado, um controlador lógico e um display (figura 1) que fazem parte dela.
+</p>
+<p>
+</p>
+<center>
+ <img alt="Exemplo do recurso de composição da programação oirentada ao objeto em python" src="https://professormarcolan.com.br/wp-content/uploads/2018/05/ExemploDoRecursoDeEncapsulamentoptbr.jpg" style="width: 400px; height: 350px;" title="Exemplo do recurso de composição da programação oirentada ao objeto em python"/>
+ <figcaption class="wp-caption-text">
+  Figura 1: Exemplo do recurso de composição da programação orientada ao objeto em Python
+ </figcaption>
+</center>
+<p>
+ Inicialmente vamos escrevera a classe Caculadora com esses 4 objetos citados (código 1). Para isso, vamos implementar o método __init__() e dentro dele vamos instancia as classes para criar um objeto de cada uma das classes (uma bateria, um teclado, um controlador lógico e um display).
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 1 - Criando a classe Calculadora
+    class Calculadora():
+        """Classe calculadora
+        """
+        def __init__(self):
+            self.bateria = Bateria()
+            self.entrada = TeclasCalculadora()
+            self.operacoes = Operacoes()
+            self.display = Display()
+    </pre>
+<h3>
+ A classe bateria
+</h3>
+<p>
+ A classe bateria (código 2) é a classe responsável por emular o uso da bateria. Conforme o uso da calculadora a bateria vai sendo gasta. Ela também é responsável por monitorar o uso da bateria e avisar quando a bateria estiver em um nivel baixo
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 2 - Criando a classe bateria
+    class Bateria():
+        def __init__(self):
+            self.pcBateria =100
+            self.gasto =0.9
+
+        def uso(self):
+            self.pcBateria =self.pcBateria*self.gasto
+            self.getBateriaFraca()
+
+
+        def getBateriaFraca(self):
+            print(" tem " + str(self.pcBateria) + "% de bateira")
+            if(self.pcBateria &lt; 55):
+                print("bateria fraca")
+                return True
+            else:
+                return False
+    </pre>
+<h3>
+ A classe Teclas da Calculadora
+</h3>
+<p>
+ A classe TeclasCalculadora (código 3) é a classe responsavel por emular o telcado da calculadora. A calculadora didática vai ter como entrada dois numeros e essa classe vai ser responsavel guardar os valores.
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 3 - Criando a classe responsável por ler a entrada da calculadora
+    class TeclasCalculadora():
+        def __init__(self):
+            self.valor1=0
+            self.valor2=0
+
+        def valorEntrada(self,v1,v2):
+            self.valor1=v1
+            self.valor2=v2
+
+        def getValor(self):
+            return [self.valor1,self.valor2]
+    </pre>
+<h3>
+ A classe Operações
+</h3>
+<p>
+ A classe operações (código 4) é a responsável por emular o controlador lógico da calculadora. A calculadora didática vai ter duas operações implementadas a de somar e a de subtrair dois números
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 4 - Criando a classe bateria
+    class Operacoes():
+
+        def soma(self, valores):
+            val=0
+            for v in valores:
+                val = val + v
+
+            return val
+
+        def subtracao(self, valores):
+            val=0
+            for v in valores:
+                val = val - v
+            return val
+    </pre>
+<h3>
+ A classe Display
+</h3>
+<p>
+ A classe display (código 5) é a classe responsável por exibir os valores na tela.
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 5 - Criando a classe bateria
+    class Display():
+        def __init__(self):
+            self.brilhoTela= 20
+            self.textoTela ="0"
+
+        def mostraTexto(self, textoTela):
+            self.textoTela =textoTela
+            print(self.textoTela)
+    </pre>
+<h3>
+ A classe Calculadora completa
+</h3>
+<p>
+ Após a criação das outras classes vamos adicionar mais dois novos métodos. Um método chamado novaOperação que serve para o programador setar os valores da nova operação e um método chamado soma que ao ser invocado chama a operação de somar com os valores setador na função novaOperação.
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 6 - Adicionando dois novos métodos a classe Calculadora
+    class Calculadora():
+        def __init__(self):
+            self.bateria = Bateria()
+            self.entrada = TeclasCalculadora()
+            self.operacoes = Operacoes()
+            self.display = Display()
+
+        def novaOperacao(self, valor1,valor2):
+            self.entrada.valorEntrada(valor1,valor2)
+            self.bateria.uso()
+
+        def soma(self):
+            soma = self.operacoes.soma(self.entrada.getValor())
+            self.display.mostraTexto(soma)
+            self.bateria.uso()
+    </pre>
+<h3>
+ Instanciando a classe calculadora
+</h3>
+<p>
+ Agora, iremos instanciar a classe para criar uma calculadora e iremos utilizar esse novo objeto para calcular 3 somas diferentes.
+</p>
+<p>
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 7 - Utilizand a classe Calculadora para realizar 3 somas diferentes.
+    cal1 = Calculadora()
+
+    cal1.novaOperacao(10,20)
+    # tem 90.0% de bateira
+    cal1.soma()
+    # 30
+    # tem 81.0% de bateira
+
+
+    cal1.novaOperacao(15,20)
+    # tem 72.9% de bateira
+    cal1.soma()
+    # 35
+    # tem 65.61% de bateira
+
+    cal1.novaOperacao(20,20)
+    # tem 59.049% de bateira
+    cal1.soma()
+
+    # 40
+    # tem 53.144100000000016% de bateira
+    # bateria fraca
+
+    </pre>
+<h2>
+ Discução do recurso de composição da calculadora
+</h2>
+<p>
+ Em resumo, a classe calculadora conseguiu somar e subtrair conforme o esperado além de possuir um controle da sua bateria. Na classe calculadora agrupamos os detalhes de menor nível em outras classes (bateira, teclado, display) e utilizamos instancias (objetos) dessas classes para construir um componente de maior complexidade (calculadora).  Dessa forma conseguimos criar um componente (calculadora) de maior nível de complexidade sem termos que nos preocupar com os detalhes de menor nível. A classe calculadora pode fazer parte de um programa com maior complexidade (e.g. controlador de trajetoria de um missel).
+</p>
+<h2>
+ Encapsulamento Herança e Polimorfismo em Python
+</h2>
+<p>
+ O relacionamento de composição nos permite criar componentes mais complexos criando os componentes mais simples. Para usar este recurso, basta fazer consultas simples, como: – “a classe” A “tem um objeto” B “, C e D?” – “o que a classe A tem?”. Usando esse recurso rapidamente pode tornar difícil saber quais métodos podem ser usados por outras classes e quais métodos são importante para o funcionamento interno da classe. O próximo tutorial discutirá como utilizamos o recurso de encapsulamento que pode ser usado para separar esses dois tipos de métodos. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Referencias
+</h2>
+<p>
+</p>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin.  The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  [6]PILONE, Dan; PITMAN, Neil. UML 2.0 in a Nutshell. ” O’Reilly Media, Inc.”, 2005.
+ </li>
+</ul>

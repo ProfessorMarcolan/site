@@ -1,0 +1,179 @@
+<p>
+ Polimorfismo é a ferramenta da programação orientada ao objeto que permite implementações elegantes de software. Porém, muito mais importante que isso é que essa ferramenta permite, caso seja necessário, que o software seja facilmente modificado. Nesse post, de 5 minutos, vamos explorar definir o que é polimorfismo em Python e exemplificar o uso do polimorfismo. [10]
+</p>
+<p>
+ Para entender o polimorfismo é de suma importância que você já tenha entendido:
+ <a href="https://professormarcolan.com.br/classe-em-python/" rel="noopener" target="_blank">
+  como fazer uma classe em Python
+ </a>
+ ,
+ <a href="https://professormarcolan.com.br/como-utilizar-a-heranca-em-python/" rel="noopener" target="_blank">
+  como utilizar a herança em Python
+ </a>
+ . Mesmo que, para o Python, o recurso do polimorfismo não seja alcançado, necessariamente, a partir da herança como vamos discutir no post sobre “tipagem de pato”. Nesse post vamos abordar de uma forma mais clássica, geralmente como é abordada em outras linguagens, esse recurso.
+</p>
+<h2>
+ Polimorfismo em Python
+</h2>
+<p>
+ O polimorfismo é uma palavra que deriva do Grego que significa “algo que assume muitas formas” [10]. Na programação orientada ao objeto o polimorfismo permite que os objetos de diferentes tipos, cada um com seus comportamentos específicos, possam serem tratados a partir de uma classe, comum a todos as diferentes classes, mais abstrata[4]. Ou seja, um objeto, de uma classe A mais abstrata, pode assumir o papel de diferentes tipos de objetos de classes derivadas, mais concretas. Para fixar, deixar mais claro, esse conceito para um exemplo.
+</p>
+<h2>
+ Exemplo de polimorfismo em Python
+</h2>
+<p>
+ Por exemplo, vamos definir que o circulo, quadrado e triangulo são formas geométricas. Assim, podemos pensar que uma classe que implemente um circulo, um quadrado ou um triangulo tem uma relação “.. é (são) um(a)…” com uma classe que constrói formas geométrica. Como vimos, no post sobre herança em Python, quando encontramos esse tipo de relação entre diferentes classes podemos utilizar o recurso de herança. Assim, a classe que constrói quadrados, a que constrói triangulo e a que constrói círculos são classes filhas, mais abstratas, de uma classe pai que define o que é uma forma geométrica, figura 1.
+</p>
+<p>
+</p>
+<center>
+ <img alt='"diagrama' src="https://professormarcolan.com.br/wp-content/uploads/2018/07/diagrama-uml-polimorfismo-python.png" title='"diagrama'/>
+</center>
+Figura 1 : Diagrama UML de um exemplo de polimorfismo em Python
+<p>
+</p>
+<h3>
+ Implementação de uma interface em Python
+</h3>
+<p>
+ A classe que implementara a classe abstrata de uma forma geométrica, de nome “FormaGeometrica” será determinada com uma interface – classe 100% abstrata que apenas tem os métodos bem delimitados. Essa classe tem 1 método demarcado: cal_Area, que serve para calcular a área da forma geométrica. Como cada forma geométrica terá sua própria forma de calcular a sua área esse método, na classe pai, apenas terá a palavra “pass”, código 1.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 1 - classe abstra
+class FormaGeometrica():
+def calc_area(self):
+pass
+ </code>
+</div>
+<h3>
+ Desenvolvimento das classes concretas:
+</h3>
+<p>
+ A classe “Quadrado” e “circulo” herdaram a classe “FormaGeometrica” e cada uma delas irá implementar a sua forma particular de calcular a área no método “calc_area”, codigo2.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="pre-exercise-code">
+  class FormaGeometrica():
+def calc_area(self):
+pass
+ </code>
+ <code data-type="sample-code">
+  # código 2 implementacao das classes concretas
+class Quadrado(FormaGeometrica):
+def __init__(self,base):
+self.base = base
+
+def calc_area(self):
+return self.base * self.base
+
+class Circulo(FormaGeometrica):
+def __init__(self, raio):
+self.raio = raio
+
+def calc_area(self):
+return self.raio * self.raio * 3.14
+ </code>
+</div>
+<p>
+ Até esse momento, estamos apenas construindo as classes que vamos usar. Ainda, de fato, nada novo foi apresentado.
+</p>
+<h3>
+ Como utilizar o polimorfismo em Python
+</h3>
+<p>
+ Agora, após toda essa construção, vamos utilizar o recurso do polimorfismo para calcular a soma de todas as diferentes formas geométricas de uma lista codigo 3.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="pre-exercise-code">
+  class FormaGeometrica():
+def calc_area(self):
+pass
+
+class Quadrado(FormaGeometrica):
+def __init__(self,base):
+self.base = base
+
+def calc_area(self):
+print("calculo a area de um quadrado")
+return self.base * self.base
+
+class Circulo(FormaGeometrica):
+def __init__(self, raio):
+self.raio = raio
+
+def calc_area(self):
+print("calculo a area de um circulo")
+return self.raio * self.raio * 3.14
+ </code>
+ <code data-type="sample-code">
+  # código 3 polimorfismo
+quad1 = Quadrado(2)
+quad2 = Quadrado(3)
+cir1 = Circulo(1)
+cir2 = Circulo(2)
+
+formas_geometricas = [quad1, quad2 , cir1, cir2]
+
+soma=0
+for forma in formas_geometricas:
+soma = soma + forma.calc_area()
+
+print("a area foi de {}".format(soma))
+ </code>
+</div>
+<p>
+ No código 3, construimos uma lista com 4 figuras geométricas e em um for looping a interamos e somamos todas as areas. O objeto polimorfico “forma” assumiu tanto o comportamento da classe “Quadrado”, quanto da classe “Circulo” e por isso conseguiu calcular de forma correta a soma de todas as areas.
+</p>
+<h2>
+ Duck Tiping
+</h2>
+<p>
+ Geralmente, em outras linguagens inclusive, é necessário fazer todo esse processo para se poder utilizar o recurso de polimorfismo. Geralmente se faz todo esse processo no Python porque fica mais explicito quais métodos são comuns a todas as classes que irão ser listadas junto. Porém, no Python, não é necessário realizar todo esse processo para utilizar o recurso do polimorfismo. Iremos entender sobre a “tipagem de pato” no próximo post. Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Referencias
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  [6]https://www.sololearn.com/Play/Python
+ </li>
+ <li>
+  [7]https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-a-single-and-a-double-underscore-before-an-object-name
+ </li>
+ <li>
+  [8]https://www.python.org/dev/peps/pep-0008/#naming-conventions
+ </li>
+ <li>
+  [9] Spronck, P. (2016). The Coder’s Apprentice: Learning Programming with Python 3.
+ </li>
+ <li>
+  [10] Dierbach, C. (2012). Introduction to Computer Science Using Python: A Computational Problem-Solving Focus. Wiley Publishing.
+ </li>
+</ul>

@@ -1,0 +1,119 @@
+<p>
+ Nessa linha de tutorias sobre o
+ <a href="https://www.professormarcolan.com.br/tag/python/" rel="noopener" target="_blank">
+  como programar usando o Python
+ </a>
+ começamos discutindo sobre
+ <a href="https://www.professormarcolan.com.br/introducao-python-funcao-python/" rel="noopener" target="_blank">
+  o que é uma linguagem e como definir uma função em Python
+ </a>
+ . Nesse tutorial começaremos a discutir como criar variáveis em Python e como atribuir valores para elas.
+</p>
+<h2>
+ Variáveis em Python
+</h2>
+<p>
+ Em uma linguagem de programação além de poder definir funções você pode definir variáveis. Para criar uma variável em Python basta escrever um nome que não tenha sido ainda definido, utilizar o comando de atribuição
+ <b>
+  ( = )
+ </b>
+ e atribuir um valor
+</p>
+<p>
+ . Lembre-se que esse nome não pode começar por um numero (e.g. 1nome) ou ser só um numero (e.g. 1). Você pode ver um exemplo de como criar variáveis em Python no código 1.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # Código 1 - Criando variáveis em Python
+mensagem = 'Ola mundo'
+numero = 520
+numeroPi = 3.141592
+ </code>
+</div>
+<p>
+ Um jeito comum de representar váriveis em um papel é escrever o nome dela e apontar uma fecha para o valor da variável. Esse tipo de figura é chamado de diagrama de estado. Ele é chamado assim porque esse diagrama exibe o estado de cada variavel em dado momento [2]. Um diagrama de estado do código 2 seria como o da figura 1.
+</p>
+<p>
+</p>
+<center>
+ <img alt="Diagrama de estado do código 2" height="378" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/03/diagramaDeEstadoDoCodigo2.png" style="width: 400px; height: 350px;" title="Diagrama de estado do código 2" width="900"/>
+</center>
+Diagrama de estado do código 2
+<p>
+</p>
+<h2>
+ Python atribui dinamicamente os tipos dos dados
+</h2>
+<p>
+ No Python como em outras linguagens você não precisa previamente definir estaticamente o tipo de variável. No Python, as variáveis nunca são explicitamente definidas/escritas. O Python descobre qual é o tipo de variável no momento que é atribuído um valor a ela e, a monitora de forma interna. [4] Por isso dissemos que o Python é uma linguagem com definições dinâmicas. Isso é de certa forma condizente com seu design voltado para ajudar o programador.
+</p>
+<p>
+ As variáveis no Python também são fortemente definidas. Ou seja, o tipo da variável é sempre reforçado. Se você tem uma variável inteira, você não pode tratar ela como uma variável do tipo string sem ter uma conversão explicita antes. Se ela fosse uma linguagem com variáveis fracamente definidas os tipos das variáveis poderiam ser ignorados. Uma linguagem que possui variáveis fracamente definidas por exemplo é a VBScript [4]. Em VBScript você pode concatenar uma string (’12’) com um numero do tipo inteiro ( 3 ) para ter a string (‘123’) sem precisar explicitar nenhuma conversão antes.
+</p>
+<p>
+ Então no Python é uma linguagem com definições de tipos de forma dinâmica porque você não precisa explicitamente definir um tipo antes de criar uma váriavel. E os tipos de váriaveis são fortes já que depois que foi atribuído um tipo a esse dado esse tipo de dado importa[4].
+</p>
+<h3>
+ Identificando o tipo das variáveis
+</h3>
+<p>
+ Iremos identificar os tipos dos dados que nós criamos. Para isso vamos usar a função “print” e a função “type”. Essas funções já vem definidas/criadas pela biblioteca padrão do Python. A função
+ <b>
+  “print”
+ </b>
+ serve para imprimir o texto que entra como argumento no prompt de comando. E a função
+ <b>
+  “type”
+ </b>
+ serve para retornar que tipo é a variável que entrou nela pelo seu argumento. Vale mencionar que o Python é uma linguagem de programação de propósito geral e que já vem com as baterias inclusas. Isso significa que você já consegue fazer uma série de programas somente com a biblioteca padrão e ela serve para fazer um monte de aplicação diferentes.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 2 - Imprimindo o tipo das viráveis em Python
+print(type(message))
+# str
+print(type(n))
+# int
+print(type(pi))
+# float
+ </code>
+</div>
+<p>
+ Ao observar o código 3 percebemos que cada uma das variáveis possuí um tipo primitivo diferente. A variável “mensagem” é do tipo string (texto), a variável “n” é do tipo inteiro, e a variável pi é do tipo ponto flutuante. O Python internamente atribuiu esses tipos a essas variáveis. O Python tem vários tipos de variáveis construídas em sua biblioteca padrão, que iremos discutir ao longo de outros tutorias.
+</p>
+<h2>
+ Blocos de códigos
+</h2>
+<p>
+ Nesse primeiro tutorial discutimos sobre como criar variáveis em Python. No próximo vamos discutir sobre como o computador lê seu código. Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Bibliografia
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  https://dicionariodoaurelio.com/bolacha
+ </li>
+</ul>

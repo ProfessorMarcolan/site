@@ -1,0 +1,271 @@
+---
+layout: post
+title:  Aula 4
+date:   2019-03-22 11:30:22 -0300
+author: "Joao PAgina"
+categories: jekyll update python variaveis
+permalink: pagina-text.html
+---
+<p>
+ Os programas criados em Python são altamente dependes da indentação encontrada no texto do documento. Um editor de texto que ajude a montar a estrutura necessária pode ser extremamento util na hora da programação. Venha conferir esse tutorial aonde apresentarei o Atom como IDE para Python.
+ <a href="https://www.professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
+  Esse é o IDE usado nos tutoriais sobre orientação ao objeto para Python
+ </a>
+ . Assim, como é o IDE usado nos
+ <a href="https://www.professormarcolan.com.br/tag/python/" rel="noopener" target="_blank">
+  tutoriais introdutórios sobre programação em Python
+ </a>
+ .
+</p>
+<h1>
+ Atom
+</h1>
+<p>
+ O uso de uma IDE adequada pode aumentar o desempenho dos programadores em qualquer linguagem. O uso de um editor de texto que encontre algumas ferramentas (e.g., auto completar e de navegação pelo documento) melhoram a produtividade dos programadores. O Atom é um editor de texto moderno que pode ser totalmente customizado, podendo ser usado para programar em muitas linguagens de programações diferentes.
+</p>
+<p>
+</p>
+<center>
+ <img alt="Configurações possessíveis do atom" height="366" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/configuracoesAtom.png" style="width: 400px; height: 300px;" title="Configurações possessíveis do atom" width="614"/>
+</center>
+Figura 1. Configurações possíveis do atom: núcleo, editor de texto, teclas de atalhos, temas, pacotes.
+<p>
+</p>
+<p>
+ Se é a sua primeira vez usando esse editor, ele vai exibir na tela inicial o arquivo de boas vindas e com esse documento você pode chegar no documento de configurações (figura 1).
+</p>
+<p>
+</p>
+<center>
+ <img alt="Arquivo de boas vindas do Atom" height="384" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/atomFirstUsage.png" style="width: 320px; height: 350px;" title="Arquivo de boas vindas do Atom" width="320"/>
+</center>
+Figura 2. Arquivo de boas vindas do Atom
+<p>
+ Caso você tenha fechado a aba de boas vindas você sempre conseguira reabrir o documento de configurações indo em
+ <b>
+  file&gt;settings
+ </b>
+ .
+</p>
+<h1>
+ Modificando o Atom para se tornar um IDE para Python
+</h1>
+<p>
+ Vamos configurar o Atom para ser um IDE para Python. O Atom possui milhares de pacotes que podem adicionar novas funcionalidades. Nesse tutorial vamos instalar alguns pacotes que nos interessam e os atalhos de teclado também podem ser customizados. No atom as teclas de atalhos são chamadas de
+ <i>
+  keybinds
+ </i>
+ . Nesse tutorial iremos apresentar alguns atalhos do atom que já vem configurados e alguns que vem na instalação dos novos plugins. O Atom também possui a funcionalidade de modificar o layout do editor de texto. Eu particularmente gosto do layout preto mas você pode configurar como você quiser. Ok! vamos tornar o Atom um IDE para Python.
+</p>
+<h2>
+ Ajustando o editor de texto
+</h2>
+<p>
+ A primeira coisa que vamos ajustar é o editor de texto para ser otimizado para Python. Para isso vá até o arquivo de configurações (figura 1) e clique na aba editor. O primeiro ajuste é marcar as caixas:
+ <i>
+  show line number”
+ </i>
+ e
+ <i>
+  show ident Guide
+ </i>
+ . Essas duas Configurações servem para deixar mais fácil de visualizar as identações nos arquivos. Após a configuração, coloque o valor 4 no campo
+ <i>
+  Tab length
+ </i>
+ . Essa configuração faz com que cada vez que você aperte a tecla tab, o editor de texto coloque 4 espaços. O valor 4 foi definido no PEP 8. Você pode visualizar essas duas configurações na figura 3.
+</p>
+<p>
+</p>
+<center>
+ <img alt="configurando o editor de texto do atom para python" height="319" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/configurandoEditorTextoAtom.png" style="width: 400px; height: 350px;" title="configurando o editor de texto do atom para python" width="464"/>
+</center>
+Figura 3. Configuração do editor de texto do atom para melhor programar em python
+<p>
+</p>
+<p>
+ Apos as configuração você vai perceber que agora o editor esta mostrando um ponto no lugar de espaço (figura 4b). E possui uma linha guia na identação do documento (figura 4b)
+</p>
+<p>
+</p>
+<center>
+ <img alt="configurando o editor de texto do atom para python" height="300" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/aposConfiguracaoDoEditorAtom.png" style="width: 400px; height: 350px;" title="configurando o editor de texto do atom para python" width="562"/>
+</center>
+Figura 4. Editor de texto configurado a) sem as configuração explicadas b) editor apos as configurações
+<p>
+</p>
+<h2>
+ Key binds
+</h2>
+<p>
+ O atom possui uma série de atalhos no teclado para as mais diversas funções. Você pode observar tudo isso no documento de configurações (figura 1) na aba
+ <i>
+  keybinds
+ </i>
+ . Alguns atalhos que já vem configurados e podem ser uteis para programadores Python são:
+</p>
+<ul>
+ <li>
+  Selecionar o texto + tab : faz com que o texto selecionado avance uma identação
+ </li>
+ <li>
+  Selecionar o texto + shift-tab : faz com que o texto selecionado retorne uma identação
+ </li>
+ <li>
+  selecionar o texto + ctrl-/ : faz com que o texto selecionado vire comentário. Caso ele seja um comentario faz ele se tornar código
+ </li>
+ <li>
+  ctrl+s : salva o documento
+ </li>
+</ul>
+<h2>
+ Plugins para ser instalado
+</h2>
+<p>
+ Agora iremos instalar os plugins que ajudarão ainda mais o seu desenvolvimento em Python. Para instalar basta ir no arquivo de configurações (figura 1) e ir na aba install. Nela digite o nome do plugins indicado nos subtítulos a seguir:
+</p>
+<h3>
+ Plugin: atom-python-run
+</h3>
+<p>
+ O plugin
+ <a href="https://atom.io/packages/atom-python-run" rel="noopener" target="_blank">
+  atom-python-run
+ </a>
+ serve para rodar os programas em python direto do editor de texto.
+ <br/>
+ Para configurar esse plugin vá no documento de configurações (figura 1), vá na aba packages encontre esse plugin e clique no botão
+ <i>
+  setting
+ </i>
+ dele. Clicar nele vai
+ <br/>
+ te direcionar para o documento desse plugin e dentro dele coloque no campo “F5 comando” o path de aonde esta instalado o python que você deseja rodar. Geralmente o
+ <br/>
+ Python esta instalando em “C:\Users\[nome do usuario]\AppData\Local\Programs\Python”.
+</p>
+<h3>
+ Plugin: autocomplete-python
+</h3>
+<p>
+ Esse é o plugin de
+ <a href="https://atom.io/packages/autocomplete-python">
+  autocompletar do Python
+ </a>
+ . Para a instalação desse plugin vai aparecer as opções entre jedi e keti
+ <br/>
+ escolha a opção Jedi:
+</p>
+<p>
+</p>
+<center>
+ <img alt="configurando o editor de texto do atom para python" height="380" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/kiteeJedi.png" style="width: 400px; height: 350px;" title="configurando o editor de texto do atom para python" width="694"/>
+</center>
+<h3>
+ Figura 5. Opções de instalação do plugin autocomplete-python a)jedi b)keti
+</h3>
+<p>
+</p>
+<p>
+ Após a instalação do plugin de auto completar você irá perceber que vai aparecendo, em um menu próximo ao cursor de escrita, as funções em python que podem ser auto-completadas enquanto você escreve seu código (figura 6). Caso esse menu se feche você também pode usar o atalho “ctrl+espaco” para abri-lo.
+</p>
+<p>
+</p>
+<center>
+ <img alt="configurando o editor de texto do atom para python" height="384" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/autoCompletarPython.png" style="width: 320px; height: 350px;" title="configurando o editor de texto do atom para python" width="320"/>
+</center>
+<h3>
+ Figura 6. Menu de auto completar código do Atom
+</h3>
+<p>
+</p>
+<h3>
+ Plugin: python-tools
+</h3>
+<p>
+ O plugin
+ <a href="https://atom.io/packages/python-tools" rel="noopener" target="_blank">
+  python-tools
+ </a>
+ serve para rodar os programas em python serve para movimentar entre funções.Para isso basta estar em um documento “*.py” com a estenção do python e clicar:
+</p>
+<ul>
+ <li>
+  cursor em cima da função/variavel + ctrl-alt-g: faz o cursor is para a definição da função/variavel
+ </li>
+ <li>
+  cursor em cima da definição de uma função + ctrl-alt-u : ressalta todas as usagem da função escolhida
+ </li>
+ <li>
+  selecionar o texto + ctrl+/ : faz com que o texto selecionado vire comentário. Caso ele seja um comentário faz ele se tornar código
+ </li>
+ <li>
+  ctrl+s : salva o documento
+ </li>
+ <li>
+  ctrl+espaco : faz abrir o snipete de alto completar
+ </li>
+</ul>
+<h3>
+ Plugin: hyperclick
+</h3>
+<p>
+ Ao instalar o plugin
+ <a href="https://atom.io/packages/hyperclick" rel="noopener" target="_blank">
+  hyperclick
+ </a>
+ e já estiver instalado o Plugin:python-tools faz gerar um novo atalho. O novo atalho faz com que você vá para definição da função usando o atalho ctrl-click na função desejada.
+</p>
+<h3>
+ Plugin: minimap
+</h3>
+<p>
+ O plugin minimap habilitará no lado direito do documento um minimapa de todo o documento aberto.
+</p>
+<h3>
+ Plugin: minimap-highlight-selected
+</h3>
+<p>
+ O plugin
+ <a href="https://atom.io/packages/minimap-highlight-selected" rel="noopener" target="_blank">
+  minimap-highlight-selected
+ </a>
+ habilita a funcionalidade de realçar o texto no minimapa de qualquer texto que o usuário selecionar. Isso ajuda muito a encontrar variáveis, funções no código.
+</p>
+<h3>
+ Plugin: Magic Python
+</h3>
+<p>
+ O plugin
+ <a href="https://atom.io/packages/language-python" rel="noopener" target="_blank">
+  language python
+ </a>
+ , que vem instalado, já consegue destacar a sintaxe da linguagem de programação do Python nos arquivos definidos de Python (.py) . Porém, para algumas sintaxes novas da linguagem esse plugin não consegue realçar adequadamente. Em alguns tutoriais aqui do site iremos utilizar essas novas sintaxes. Para então realça-las utilizamos o plugin
+ <a href="https://atom.io/packages/MagicPython" rel="noopener" target="_blank">
+  Magic Python
+ </a>
+ . Para fazer ele funcionar você deve instalar esse package como fez com os outros. Porém, após instalar você vai ter que ir na aba de packages e desabilitar o package
+ <i>
+  language python
+ </i>
+ que vem instalado de fábrica.
+</p>
+<h2>
+ Pronto! Você tem um super editor de texto
+</h2>
+<p>
+ Pronto agora você tem um IDE para Python que ira te ajudar a otimizar seu trabalho. Agora é hora de usar esse editor. Caso você seja novo em Python, vá para as aulas introdutórias de Python. Caso você já tenha mais familiaridade vá para os tutoriais de opencv.
+</p>
+<p>
+ Poste suas dúvidas nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  e nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<p>
+</p>

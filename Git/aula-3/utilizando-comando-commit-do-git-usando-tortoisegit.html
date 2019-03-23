@@ -1,0 +1,161 @@
+<p>
+ Nesse tutorial você irá aprender a utilizar a ferramenta de
+ <b>
+  <i>
+   commit
+  </i>
+ </b>
+ do git. No tutorial passado você
+ <a href="https://www.professormarcolan.com.br/criando-um-repositorio-de-trabalho-com-tortoisegit/" rel="noopener" target="_blank">
+  criou um repositório de trabalho do git utilizando o TortoiseGit
+ </a>
+ . Agora você já possui esse diretório de trabalho no qual é possível utilizar o comando de versionamento do git.
+</p>
+<p>
+ Para acompanhar esse tutorial você deve ter instalado o TortoiseGit. Caso você ainda não tenha instalado o TortoiseGit
+ <a href="https://www.professormarcolan.com.br/tutorial-para-a-instalacao-do-tortoisegit/" rel="noopener" target="_blank">
+  veja o tutorial para instalar o TortoiseGit
+ </a>
+ .
+</p>
+<h2>
+ Como funciona a ferramenta de commit do git
+</h2>
+<p>
+ A ferramenta de
+ <b>
+  <i>
+   commit
+  </i>
+ </b>
+ do git é a ferramenta responsável por gravar o estado atual dos arquivos. Para o Git inicialmente todos os arquivos no diretório de trabalho não estão sendo monitorados (não versionados). A partir do momento que o arquivo é versionado (gravado o estado) uma unica vez ele começa a ser monitorado pelo Git.
+</p>
+<p>
+ O git considera que os arquivos que estão sendo monitorados estão entre dois estados: inalterados ou modificados. Esses dois estados servem para o Git decidir se o arquivo precisa possuir um novo registro de estado ou não. Caso o arquivo não tenha sido alterado comparado ao ultimo registro de estado dele o sistema o ignora. Caso o arquivo tenha alguma alteração o sistema permite a aquisição de um novo registro desse documento. Dos arquivos habilitados para um novo versionamento pelo Git o usuário pode escolher quais desses arquivos ele quer gravar o estado. Assim, os arquivos alterados voltam ao estado de inalterados. Conforme o uso dessa ferramenta o usuário vai criando uma série de relatórios de estados dos arquivos. Essa série de relatórios posteriormente podem ser visualizados.
+</p>
+<h2>
+ Utilizando a ferramenta de commit do git com o TortoiseGit
+</h2>
+<p>
+ Para testar essa ferramenta crie um documento de texto (txt) dentro da pasta de trabalho, criado no tutorial passado, com o nome “primeiroVersionamento.txt” e escreva dentro dele a frase “Primeiro versionamento” e salve. O arquivo deve ficar como o da Figura 4.
+</p>
+<p>
+</p>
+<center>
+ <img alt="arquivo do primeiro versionamento" height="103" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/primeiroVersionamentoArquivo.png" style="width: 271px; height: 103px;" title="arquivo do primeiro versionamento" width="271"/>
+</center>
+Figura 4. Arquivo de versionamento
+<p>
+</p>
+<p>
+ Após salvar o arquivo você irá criar o primeiro versionamento desse arquivo. Para realizar isso, clique novamente com o botão direito dentro da pasta de trabalho do git e dentro do menu de contexto clique no comando
+ <b>
+  <i>
+   “Git commit -&gt; master”
+  </i>
+ </b>
+ (como mostrado na figura 5).
+</p>
+<p>
+</p>
+<center>
+ <img alt="arquivo do primeiro versionamento" height="114" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/primeiroGitCommitMaster.png" style="width: 275px; height: 114px;" title="arquivo do primeiro versionamento" width="275"/>
+</center>
+Figura 5. Arquivo de versionamento
+<p>
+</p>
+<h3>
+ Interface gráfica do TortoiseGit da ferramente Commit do Git
+</h3>
+<p>
+ Após clicar no
+ <b>
+  <i>
+   “Git commit -&gt; master”
+  </i>
+ </b>
+ vai abrir a interface gráfica do TortoiseGit relacionada a ferramenta de commit (conforme figura 6). As funcionalidades de cada widget dessa interface são descritos a seguir).
+</p>
+<p>
+</p>
+<center>
+ <img alt="tela de versionamento (commit do git" height="487" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/primeiroVersionamentoTurtoiseGit.png" style="width: 450px; height: 487px;" title="tela de versionamento (commit do git" width="450"/>
+</center>
+Figura 6 Interface gráfica do TortoiseGit relacionada a ferramenta de commit do git
+<p>
+</p>
+<p>
+ Na caixa que está escrito “messagem”:
+</p>
+<ul>
+ <li>
+  Escreva uma mensagem no campo de texto. Esse campo serve para o autor comentar o que foi alterado nos documentos desse versionamento
+ </li>
+ <li>
+  Marque a opção “set author date”. Esse botão serve para informar quando o autor fez o registro do versionamento arquivos
+ </li>
+ <li>
+  Marque a opção “set author”. Esse botão serve para informar quem foi o autor do versionamento dos arquivos
+ </li>
+</ul>
+<p>
+ Na caixa que está escrito “changes made” :
+</p>
+<ul>
+ <li>
+  Marque a caixa dos arquivos que você quer selecionar para o versionamento na tabela que contem os arquivos. A tabela tem as colunas “path”, “extension”, “status”, “lines add”, “lines removed”. A coluna “path” informa o caminho do arquivo, a coluna “extension” informa a extensão do documento, a coluna “Status” informa o status do versionamento de arquivo- se
+  <br/>
+  for unknown é porque não foi ainda versionado, A coluna “lines add” diz respeito a quantas linhas foram adicionados no documento e a coluna “lines subtraction” quantas linhas foram retiras
+ </li>
+ <li>
+  Marque a opção “show Unversioned Files” . Essa caixa de opção serve para mostrar na tabela os arquivos que ainda não foram versionado, não estão ainda monitorados
+ </li>
+</ul>
+<p>
+ Por fim clique no botão
+ <b>
+  <i>
+   commit
+  </i>
+ </b>
+ . Esse botão serve executar o comando de versionamento – ira abrir uma interface gráfica como mostrado na figura 7;
+</p>
+<p>
+</p>
+<center>
+ <img alt="tela de versionamento commit do git" height="296" src="https://www.professormarcolan.com.br/wp-content/uploads/2018/02/commitFuncionou.png" style="width: 389px; height: 296px;" title="tela de versionamento commit do git" width="389"/>
+</center>
+Figura 7. Funcionou o commit do git
+<p>
+</p>
+<p>
+ Pronto! Seu primeiro versionamento foi feito com sucesso. Aperte no botão “close” para fechar essa janela.
+</p>
+<h1>
+ Próximo post: como usar ramos e mesclar código
+</h1>
+<p>
+ Durante esse tutorial você deve ter visto varias vezes a palavra “master”. Ela esta relacionada ao ramo em que estamos adicionando o histórico de estado dos arquivos. Com o git, o histórico não precisa ser feito necessariamente em uma unica linha temporal. Com a ferramenta de ramos do git é possível criar diversas linhas temporais de versionamento. O git posteriormente consegue mesclar o registro de estados dos documentos dessas várias linhas temporais. No próximo tutorial sobre as ferramentas básica do git vamos falar sobre o uso da ferramenta de Mesclagem e de criação de ramos. Caso você tenha alguma dúvida poste nos comentários. Para seguir as atualizações
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no Facebook
+ </a>
+ .
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  Se inscreva no canal do youtube
+ </a>
+ .
+</p>
+<h2>
+ Referencias
+</h2>
+<ul>
+ <li>
+  [1] https://pt.wikipedia.org/wiki/Git
+ </li>
+ <li>
+  [2] https://git-scm.com/book/pt-br/v1/Primeiros-passos-No%C3%A7%C3%B5es-B%C3%A1sicas-de-Git
+ </li>
+ <li>
+  [3] https://git-scm.com/docs/git-init
+ </li>
+</ul>

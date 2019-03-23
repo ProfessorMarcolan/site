@@ -1,0 +1,181 @@
+<p>
+ No post passado discutimos sobre os aspectos iniciais da programação orientada ao objeto.
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
+  Como criar uma classe e como instanciar ela para criar um objeto
+ </a>
+ . Em seguida discutimos que
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-em-python-recurso-do-composicao/" rel="noopener" target="_blank">
+  classes mais complexas são criadas a partir de relações com objetos de outras classes menos complexos
+ </a>
+ . Em adição, nesse tutorial exemplificamos o uso das relações entre classe através do uso da composição. Para facilitar o uso das classes hoje iremos discutir o recurso de encapsulamento em Python.
+</p>
+<h2>
+ Recurso do encapsulamento em Python
+</h2>
+<p>
+ Uma parte importante da programação orientada ao objeto é o recurso de encapsulamento. Esse recurso envolve agrupar métodos e atributos em pacotes que contém diferentes formas de acesso. Por exemplo, certos métodos e atributos são empacotados como públicos e podem ser acessados por qualquer classe outros pacotes vão ter alguma restrição de acesso – os métodos e atributos só poderão ser acessadas por uma classe filha ou nenhuma outra classe pode acessar.
+</p>
+<p>
+ Tal abordagem permite o programador criar de forma fácil um interface de aplicação para as classes e também para que elas possam esconder os métodos que são utilizados para o próprio funcionamento. Por exemplo, os métodos utilizados para o funcionamento da classe são definido como privados e os métodos que devem ser utilizados por classes mais complexas são definidos como públicos. Temos que lembrar que o esforço principal do paradigma de programação orientada ao objeto é o de organizar o código e o recurso de encapsulamento está alinhado nesse esforço. Porém no Python não existe modificadores de acesso.
+</p>
+<h2>
+ O Python não tem modificador de acesso
+</h2>
+<p>
+ Em muitas linguagens (e.g. c++, java) existe o conceito de modificadores de acessos. Por exemplo, em C++ o modificador private determina que os métodos e atributos só podem ser acessados pela própria classe; o modificador protected determina que apenas as classes filhas podem acessar; o modificador public determina que qualquer classe pode acessar os elementos.
+</p>
+<h3>
+ Variáveis privadas em Python
+</h3>
+<p>
+ O Python não tem o conceito de métodos privados porque a linguagem tem a filosofia: -“todos nós somos adultos consentindo aqui”. O que significa que não deve existe restrições arbitrárias ao acessar partes de uma classe. Portanto, não há maneiras de impor um método ou atributo ser estritamente privado [6]. Porém, para se poder ter o recurso de encapsulamento o Python tem um conceito de variáveis ocultas no qual o python não restringe o acesso mas dificulta o acesso a determinada variáveis as mutilando. Para o Python tem-se dois termos para classificar as variáveis privados- métodos e atributos fracamente privados e os fortemente privados. A seleção entre esses dois métodos de dificultamento de acesso é determinado inteiramento pelo seu nome.
+</p>
+<h3>
+ Métodos e atributos fracamente privados (_single_leading_underscore)
+</h3>
+<p>
+ As variáveis e métodos que são fracamente privados são os métodos que tem um sublinhado (_) no inicio. Esse tipo de variável tem o nome de sublinhado único liderando (em inglês _single_leading_underscore). Essa abordagem APENAS sinaliza que essas variáveis são privadas e outros programadores não devem usar ela em código externos. Porém, o métodos fracamente privados são usados muito mais uma conversão e não impede que o código seja acessado de fora da classe. O único real efeito é que quando os módulos são importados as variáveis com sublinhado (_) não são importados [6].
+</p>
+<h3>
+ Exemplo de itens fracamente privados
+</h3>
+<p>
+ O código 1 tem um exemplo de uma classe que contém um método fracamente privado – o método _primeiroMetodoFracamentePrivado, e também possui um atributo fracamente privado – o atributo _atributoFracamentePrivado.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 1 - exemplo de classe com itens fracamente privados
+    class PrimeiraClassFracamentePrivada():
+        def __init__(self):
+            self._atributoFracamentePrivado = 520741
+
+        def _primeiroMetodoFracamentePrivado(self):
+            print("método fracamente privado")
+
+    </pre>
+<p>
+ Após a criação da classe chamada PrimeiraClassFracamentePrivada nó código 2 ela é instanciada de forma a criar o objeto chamado p1. Com esse objeto é tentando acessar tanto o método quando o atributo fora da classe.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 2 - exemplo de classe com itens fracamente privados
+    p1 = PrimeiraClass()
+
+    p1._primeiroMetodoPrivado()
+    # método fracamente privado
+    print(p1._atributoPrivado)
+    # 520741
+
+    </pre>
+<p>
+ Ao rodar o código 2 foi possível utilizar tanto o método quanto o atributo fracamente privado. Então, como citado na teoria tais itens ainda podem ser acessados fora da classe.
+</p>
+<h2>
+ Strongly private methods (__double_leading_underscore)
+</h2>
+<p>
+ Métodos e atributos fortemente privadoos tem um duplo sublinhado (__) no inicio de seus nomes.Esse tipo de variável tem o nome de sublinhado duplo liderando (em inglês __double_leading_underscore). Isso causa com que o nome do método seja “mutilado” e não possa ser encontrado/acessado fora da classe -os escondendo. Mas vale ressaltar que isso não para acessar que esses métodos seja privados, mas para evitar bugs se alguma subclasse tem métodos e atributos com o mesmo nome. O nome “mutilado” ainda pode ser acessado fora da classe. Para acessar um método fortemente privado basta colocar um sublinhado (_) na frente do nome classe em seguida escrever o nome da váriavel (e.g. _Carro__numeroValvulas) que o método poderá ser acessado. [6]
+</p>
+<h2>
+ Exemplo de uso do método fortemente privados
+</h2>
+<p>
+ Para testar a teoria dos itens fortemente privados, no código 3, será criada um classe, PrimeiraClassFortementePrivada, que contem um atributo fortemente privado ( __atributoFrotementePrivado) e um método fortemente privado chamado __primeiroMetodoFrotementePrivado.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 3 - exemplo de classe com itens fortemente privado
+    class PrimeiraClassFortementePrivada():
+        def __init__(self):
+            self.__atributoFrotementePrivado = 520741
+
+        def __primeiroMetodoFrotementePrivado(self):
+            print("método fortemente privado")
+
+    </pre>
+<p>
+ Como no código 2 o código 4 vai tentar acessar os itens fortemente privados utilizando o método padrão.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 4 - acessando os itens fortemente privados
+    # utilizando o método padrão de aceso.
+
+    p2 = PrimeiraClassFortementePrivada()
+    # erro loco
+    p2._primeiroMetodoPrivado()
+    # AttributeError: 'PrimeiraClassFortementePrivada'
+    # object has no attribute '_primeiroMetodoPrivado'
+
+    print(p2.__atributoFrotementePrivado)
+    # AttributeError: 'PrimeiraClassFortementePrivada' 
+    # object has no attribute '__atributoFrotementePrivado
+    </pre>
+<p>
+ Acessando os itens fortemente privados
+</p>
+<p>
+ Ao tentar acessar os itens fortemente privados é gerado o erro “AtributeErro”- atributo não existe. Então, o método realmente não permite acessar os item da forma padrão. Porém, elas ainda podem ser acessadas. Para isso no código 5 é utilizado o método de “nome mutilado” do Python para acessar tais métodos. Como explicado na teoria tal método consistem em utilizar o nome da instancia seguido do operador ponto (.), sublinhado (_), nome da classe, nome do método.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+    #código 5 - acessando os itens fortemente privados
+    #utilizando o método de nome mutilado
+    p2 = PrimeiraClassFortementePrivada()
+
+    p2._PrimeiraClassFortementePrivada__primeiroMetodoFrotementePrivado()
+    # primeiro método frotemente privado implementado
+
+    print(p2._PrimeiraClassFortementePrivada__atributoFrotementePrivado)
+    # 520741
+    </pre>
+<p>
+ A executar o código 5 conseguimos acessar os itens fortemente privados. O que significa que eles ainda podem ser acessados fora da classe como mostrado na teoria.
+</p>
+<h2>
+ Conclusão
+</h2>
+<p>
+ Se você vem de linguagems como Java, C++, C# que tem modificadores de acesso você inicialmente pode estranhar o fato de que o Python tenha a politica de “tudo é publico” [5]. Porém, tal abordagem não prejudica a ideia fundamental de encapsulamento- a de organizar os métodos e atributos entre itens de funcionamento da classe e itens da interface de aplicação. Já no método fracamente privado segmenta os itens de forma esperada e o método fortemente privado ainda pode prevenir erros principalmente no processo de herança entre classes.
+</p>
+<h2>
+ O recurso da Herança
+</h2>
+<p>
+ Nesse tutorial discutimos sobre o recurso de Encapsulamento em Python- primeiro recurso da orientação ao objeto. No próximo iremos discutir sobre o recurso de herança. Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Referencias
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  [6]https://www.sololearn.com/Play/Python
+ </li>
+ <li>
+  [7]https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-a-single-and-a-double-underscore-before-an-object-name
+ </li>
+ <li>
+  [8]https://www.python.org/dev/peps/pep-0008/#naming-conventions
+ </li>
+</ul>

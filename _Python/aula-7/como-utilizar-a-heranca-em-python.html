@@ -1,0 +1,280 @@
+<p>
+ Nesse post, de leitura fácil e de 5 minutos, você irá entender como utilizar a Herança em Python assim como todos os seus jargões.A Herança em Python é super importante para reaproveitamento de códigos. Sendo assim, venha entender como usar esse recurso para potencializar seus projetos.
+</p>
+<h2>
+ Principal mecanismo da herança
+</h2>
+<p>
+ O principal mecanismo do recurso da herança é permitir que uma classe possa ser derivada de uma classe base, permitindo que um comportamento mais especifico seja implementado na subclasse. A herança, é também uma importante característica para ao reuso de algoritmos e evitar códigos redundantes que possam tornar difícil a manutenção da base de códigos.
+</p>
+<h2>
+ Jargoens da herança
+</h2>
+<p>
+ Mas antes de nos aprofundar mais vamos discutir, revisar, um pouco sobre nomenclaturas e jargões.
+ <b>
+  Quando uma classe “B” herda aspectos da classe “A”
+ </b>
+ :
+</p>
+<ul>
+ <li>
+  a classe “B” é uma subclasse da classe “A”; .
+ </li>
+ <li>
+  a clase “A” é uma super classe da classe “B”;
+ </li>
+ <li>
+  a classe “B” é uma classe filha da classe “A”;
+ </li>
+ <li>
+  a classe “A” é uma classe pai da classe “B”
+ </li>
+ <li>
+  a classe “A” é a classe base
+ </li>
+ <li>
+  a classe “B” é a classe derivada
+ </li>
+ <li>
+  a classe “B” “…é uma…” classe “A”;
+ </li>
+</ul>
+<p>
+</p>
+<center>
+ <img alt="Como utilizar a herança em Python" height="378" src="https://professormarcolan.com.br/wp-content/uploads/2018/06/Jargoes-Heranca-Orienta%C3%A7ao-Objeto-Python.png" style="width: 400px; height: 350px;" title="Como utilizar a herança em Python" width="900"/>
+</center>
+Fig. 1: Jargoes do recurso da herança do Python
+<p>
+</p>
+<h2>
+ Como utilizar a herança em Python
+</h2>
+<p>
+ Para exemplificar o mecanismo da herança, criamos uma classe
+ <i>
+  Carro
+ </i>
+ , código 1, que possui dois métodos: o inicializador (__init__) e o para escrever o tipo de motor que tem o carro (getMotor). Em seguida, criamos uma classe
+ <i>
+  Taxi
+ </i>
+ que irá apenas acessar, de duas formas diferentes, os métodos implementados em sua classe pai,
+ <i>
+  Carro
+ </i>
+ . Por fim , iremos instanciar um objeto da classe
+ <i>
+  Taxi
+ </i>
+ . O primeiro método de acesso é usando nome da classe em seguida o operador ponto ( . ) e por fim o nome do método. O segundo método de acesso é o acesso normal, objeto self, operador ponto (.) e por fim o nome do método.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+      # Código 1 - Utilizando o recurso de herança
+      class Carro():
+          def __init__(self):
+              print("Criou um carro")
+
+          def getMotor(self):
+              print("tenho um motor a combustao")
+
+      class Taxi(Carro):
+          def __init__(self):
+              Carro.__init__(self)
+              # Criou um carro
+              self.getMotor()
+
+      car = Taxi()
+      # Criou um carro
+      # Tenho um motor a combustão
+
+      </pre>
+<p>
+ O resultado, no prompt de comando, foi primeiro a frase “Criou um carro” e em seguida a frase “Tenho um carro a combustão”. Os dois métodos de acesso invocaram os métodos implementados na classe Carro. O primeiro método acessa explicitamente o método da classe pai e o segundo método consegue demonstrar que os método implementados na classe pai, agora fazem parte da classe filha também. Quando uma classe herda outra classe, automaticamente ela pega todos os métodos e atributo da classe origina [4]. Caso você esteja com dificuldades de entender o código 1 revise a aula
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
+  sobre como criar uma classe em Python. ”
+ </a>
+ .
+</p>
+<h2>
+ Como utilizar o recurso da herança em Python
+</h2>
+<p>
+ Além disso, a classe derivada pode adicionar novos métodos e atributos. No código 2 iremos implementar um novo método para pegar passageiros para a classe
+ <i>
+  Taxi
+ </i>
+ . Esse método não é comum a todos os carros de passeio. [4]
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+      # código 2 - Especializando a classe Taxi
+      class Taxi(Carro):
+          def __init__(self):
+              Carro.__init__(self)
+              # Criou um carro
+              self.getMotor()
+              # tenho um motor a combustão
+
+          def getPassageiro(self):
+              print("pegou um novo passageiro")
+
+      car = Taxi()
+      # Criou um carro
+      # Tenho um motor a combustão
+      car.getPassageiro()
+      # Pegou um novo passageiro
+
+      </pre>
+<h2>
+ Relação “…é um(a) ..”
+</h2>
+<p>
+ No post sobre
+ <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-em-python-recurso-do-composicao/" rel="noopener" target="_blank">
+  composição explicamos, em linhas gerais, a relação “…tem um…”, “…é parte de … ”
+ </a>
+ . Por exemplo, uma classe que descreve um carro ira ter objetos referentes ao motor, pneus, parte elétrica. Porém, existe outro tipo importante de relação :
+ <b class="code">
+  “… é um(a)…”
+ </b>
+ Por exemplo, um bolo de chocolate “… é um…” bolo, uma maça é uma fruta. Quando esse tipo de relação é detectado é necessário usar o recurso da Herança.
+</p>
+<h2>
+ Método super, para acesso de métodos da classe pai
+</h2>
+<p>
+ No código 1, quando criamos a classe
+ <i>
+  Taxi
+ </i>
+ , discutimos sobre 2 métodos de acesso a classe pai: o método que escreve o nome da classe (e.g., Carro.getMotor) e o método normal. Porém, o método 1 não é muito usado pois ele não desacopla a classe derivada da classe pai.[10] Geralmente o método usado para acesso a classe pai é através do método
+ <b>
+  super()
+ </b>
+ . Iremos, no código 3 implementar um classe
+ <i>
+  CarroEletric
+ </i>
+ que deriva a classe
+ <i>
+  Carro
+ </i>
+ e implementa um método usando essa forma de acesso.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+        #código 3
+        class CarroEletric(Carro):
+            def __init__(self):
+                super().__init__()
+                self.getMotor()
+
+        car =  CarroEletric()
+        # Criou um carro
+        # Tenho um motor a combustão
+
+        </pre>
+<p>
+ Ao rodar o código 2 o resultado é semelhante ao resultado do código 1. A diferença agora que o método
+ <b>
+  super
+ </b>
+ desacopla as duas classes. Porém, o carro elétrico não tem um motor a combustão, por isso é necessário sobrescrever métodos da classe Pai.
+</p>
+<h2>
+ Sobrescrevendo métodos da classe Pai
+</h2>
+<p>
+ O método
+ <b>
+  getMotor()
+ </b>
+ retorna o esperado, porém o carro elétrico possui um motor diferente. É possível sobrescrever qualquer método da classe pai que não se adeque a classe filha. Para fazer isso é necessário definir o método na classe derivada com o mesmo nome do método indesejavel. O Python irá desprezar o método da classe pai e irá só dar atenção ao método definido na classe filha.
+</p>
+<pre class="brush: python; title: ; notranslate" title="">
+        #código 4 Sobrescrevendo método
+        # da classe pai
+        class CarroEletric(Carro):
+            def __init__(self):
+                super().__init__()
+                self.getMotor()
+
+            def getMotor(self):
+                print("tenho um motor elétrico")
+
+        car = CarroEletric()
+        # Criou um carro
+        # Tenho um motor elétrico
+        </pre>
+<p>
+ Agora, o resultado foi o esperado que o carro elétrico tem um motor elétrico.
+</p>
+<h2>
+ Como a herança organiza o código
+</h2>
+<p>
+ Em conclusão, a herança permite reaproveitar códigos mesmo que a alguns métodos necessitem ser implementados levemente diferentes nas classe filhas. A classe
+ <i>
+  Carro
+ </i>
+ pode ser reaproveitada e expandida pela classe
+ <i>
+  Taxi
+ </i>
+ e pode ser reaproveita e modificada pela classe
+ <i>
+  CarroEletric
+ </i>
+ . Geralmente, algumas classe levam um grande período de tempo de testes e desenvolvimento. Poder, usar elas como base permite inclusive ter menor custo de desenvolvimento.
+</p>
+<p>
+ Nesse tutorial introduzimos o recurso da herança. No próximo iremos discutir um pouco sobre clases conctretas,abstratas e classes interfaces. Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Como a herança organiza o código
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  [6]https://www.sololearn.com/Play/Python
+ </li>
+ <li>
+  [7]https://stackoverflow.com/questions/1301346/what-is-the-meaning-of-a-single-and-a-double-underscore-before-an-object-name
+ </li>
+ <li>
+  [8]https://www.python.org/dev/peps/pep-0008/#naming-conventions
+ </li>
+ <li>
+  [9] Spronck, P. (2016). The Coder’s Apprentice: Learning Programming with Python 3.
+ </li>
+ <li>
+  [10] https://pt.stackoverflow.com/questions/22452/como-se-usa-e-para-que-serve-o-super-em-classes-python
+ </li>
+</ul>
+<p>
+</p>

@@ -1,0 +1,164 @@
+<p>
+ No blog já discutimos
+ <a href="https://www.professormarcolan.com.br/blocos-de-codigos-python/" rel="noopener" target="_blank">
+  sobre blocos de códigos
+ </a>
+ e
+ <a href="https://www.professormarcolan.com.br/introducao-a-programacao-com-python-variaveis-em-python/" rel="noopener" target="_blank">
+  os tipos de variáveis no Python
+ </a>
+ . Hoje iremos discutir, nessa aula de 5 minutos, aonde as variáveis vivem e ainda vamos entender como fazer as variáveis globais no Python.
+</p>
+<h2>
+ Variáveis locais
+</h2>
+<p>
+ Quando você cria uma variável dentro de um função ela vive dentro dessa função e dos blocos de códigos dentro dessa função. Para testar essa afirmação iremos inicialmente criar o código 1.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # bloco de código 1
+        def primeiraFuncao():
+            # bloco de código 1.1
+            mensagem= "oi mundo"
+            print(mensagem)
+
+        # bloco de código 1
+        primeiraFuncao()
+ </code>
+</div>
+<p>
+ Ao executar o código 1 a mensagem que vai aparecer na tela será “Oi mundo”. Isso acontece porque o print tem como entrada a variável “mensagem”. E essa variável tem como conteúdo o texto “oi mundo”. Até agora, nada diferente do que já vimos nos outros tutoriais. Iremos refatorar o código 1 de forma que iremos invocar a função print fora do bloco de código chamado “primeiraFunção. O código 2 pode ser visto a baixo.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 2 
+        # bloco de código 1
+        def primeiraFuncao():
+            # bloco de código 1.1
+            mensagem= "oi mundo"
+
+
+        # bloco de código 1
+        primeiraFuncao()
+        print(mensagem)
+        # erro
+ </code>
+</div>
+<h2>
+ Variáveis em hierarquias maiores
+</h2>
+<p>
+ Ao executar o código 2 a resposta será que não tem definido a variável mensagem. Como dito anteriormente uma variável só existe dentro do bloco de código que ela é criada. Iremos refatorar o código mais um pouco. Agora iremos adicionar uma variável mensagem no bloco de código 1 (bloco com maior hierarquia) e tentaremos imprimir ela tando dentro da função criada quanto fora.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 3
+        # bloco de código 1
+        mensagem= "oi mundo de fora"
+        def primeiraFuncao():
+            # bloco de código 1.1
+            print(mensagem)
+
+
+        # bloco de código 1
+        primeiraFuncao()
+        print(mensagem)
+        # oi mundo de fora.
+        # oi mundo de fora.
+ </code>
+</div>
+<p>
+ Ao executar o código 3 percebemos que agora foi escrito na tela duas vezes “oi mundo de fora”. Como a variável “mensagem” está no bloco de código anterior ao da função ela existe dentro da função. E ela vai existir enquanto o bloco 1 existir. Essa ideia vai funcionar em outros blocos de códigos que você pode criar no Python (e.g. if, for, while).
+</p>
+<h2>
+ Erro exclusivo no uso das funções
+</h2>
+<p>
+ O que irei demonstrar a seguir é apenas uma exceção para quando o bloco é criado por uma função. Vamos refatorar o código mias um pouco agora iremo tentar modificar a variável mensagem dentro da função. Observe o código 4
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 4
+        # bloco de código 1
+        mensagem= "oi mundo de fora"
+        def primeiraFuncao():
+            # bloco de código 1.1
+            mensagem= "oi mundo"
+            print(mensagem)
+
+
+        # bloco de código 1
+        primeiraFuncao()
+        print(mensagem)
+        # oi mundo
+        # oi mundo de fora.
+ </code>
+</div>
+<p>
+ Ao rodar esse código percebemos que a saída será “oi mundo ” e depois ela ira escrever “oi mundo de fora”. O bloco de código não deveria ter modificado o conteúdo da variável “mensagem” ? porque isso aconteceu ?.
+</p>
+<h2>
+ Variáveis globais no Python
+</h2>
+<p>
+ Para esclarecer isso acontece de forma proposital nas funções. Usar variáveis globais é um mau designer de código. Como explicado no post sobre funções o Python tem em sua filosofia ser uma linguagem voltada ao desenvolvedor. Então, caso você queira assim mesmo fazer um código menos legível você terá que adicionar mais linhas de códigos. Isso é feito para te desencorajar o uso desse tipo de prática. Para poder modificar a variável vamos refatorar o código 4 de tal forma que iremos introduzir o operador global.
+</p>
+<div data-datacamp-exercise="" data-lang="python">
+ <code data-type="sample-code">
+  # código 5
+        # bloco de código 1
+        mensagem= "oi mundo de fora"
+        def primeiraFuncao():
+            # bloco de código 1.1
+            global mensagem
+            mensagem= "oi mundo"
+            print(mensagem)
+
+
+        # bloco de código 1
+        primeiraFuncao()
+        print(mensagem)
+        # oi mundo
+        # oi mundo.
+ </code>
+</div>
+<p>
+ Ao rodar o código 5 obtemos a resposta que esperávamos: o print escreve oi mundo duas vezes. Isso novamente é uma exceção para quando você estiver lidando com funções. Porque variáveis globais são um designe ruim. Fica muito fácil introduzir erros ao código. Em outro blocos de códigos (e.g. if, for, while) você pode modificar uma variável que foi criada dentro de uma função sem precisar usar o operador global.
+</p>
+<h2>
+ Controladores de fluxo
+</h2>
+<p>
+ Nessa aula discutimos aonde as variáveis vivem, o caso especial das funções. Discutimos porque deve-se introduzir o operador global quando se tenta acessar uma variável que ainda vive num bloco de código dentro de uma função. Esse post encerra a discussão do primeiro recurso do paradigma da estruturação. No próximo iremos começar a discutir o elementos que alteram o fluxo do programa.Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h2>
+ Bibliografia
+</h2>
+<ul>
+ <li>
+  [1] ZELLE, John M. Python programming: an introduction to computer science. Franklin, Beedle &amp; Associates, Inc., 2004.
+ </li>
+ <li>
+  [2] DOWNEY, Allen. Think Python. ” O’Reilly Media, Inc.”, 2012.
+ </li>
+ <li>
+  [3] PILGRIM, Mark. Dive Into Python. Createspace, 2009.
+ </li>
+ <li>
+  https://docs.python.org/3/
+ </li>
+ <li>
+  [4] MATTHES, Eric. Python crash course: a hands-on, project-based introduction to programming. No Starch Press, 2015.
+ </li>
+ <li>
+  [5]Smallshire, Robert. Bingham, Austin. The Python Apprentice. Packt Publishing ,2017.
+ </li>
+ <li>
+  https://dicionariodoaurelio.com/bolacha
+ </li>
+</ul>

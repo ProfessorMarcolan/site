@@ -1,0 +1,329 @@
+<p>
+ Nesse tutorial vamos discutir sobre o Principio Aberto Fechado (Open-Closed Principle). Ele é um dos cinco princípios que tem a intenção de tornar o software mais compreensivo e flexível.  Esses princípios foram promovidos por Robert C. Martin. Martin
+ <a href="http://www.professormarcolan.com.br/valores-da-metodologia-agile/" rel="noopener" target="_blank">
+  é um dos defensores dos valores Agile
+ </a>
+ .  Esse principio faz parte do acrônimo SOLID introduzido por Michael Feathers. No tutorial passado
+ <a href="http://www.professormarcolan.com.br/principios-solid-principio-da-responsabilidade-unica/" rel="noopener" target="_blank">
+  discutimos sobre o principio da responsabilidade única
+ </a>
+ .
+</p>
+<h2>
+ Principio Aberto Fechado (Open-Closed Principle)
+</h2>
+<p>
+ O principio Aberto Fechado vem da premissa que todos os módulos ou classes devem estar
+ <b>
+  abertas
+ </b>
+ para extensões, mas
+ <b>
+  fechadas
+ </b>
+ para modificações. Como vimos nos sintomas de um código que cheira mal quando uma simples mudança resulta em uma cascata de alterações o software começa a se tornar rígido e isso não cheira bem. Ao utilizar o principio Aberto Fechado é possível que o sistema receba extensões futuras, sem que o sistema antigo precise de modificações. A mudança de comportamento é feita pela adição de novos códigos e não mudando o código antigo que já foi testado e esta funcionando. Isso pode parecer um ideal não alcançável mas na verdade pode ser feito utilizando os mecanismo da programação orientada ao objeto. [1]
+</p>
+<ul>
+ <li>
+  Aberto para extensões: Isso significa que o comportamento de módulos e classes podem ser estendidas.
+ </li>
+ <li>
+  Fechado para modificações: Ao extender um comportamento de uma classe e um módulo não deve resultar em um modificação no módulo que já está funcionando.
+ </li>
+</ul>
+<h2>
+ Exemplo didátido do principio aberto fechado
+</h2>
+<p>
+ Para melhor entendermos esse principio iremos exemplificiar, inicialmente vamoss construir um programa que não segue o principio e posteriormente criar um programa que segue o principio.
+</p>
+<p>
+ <h3>
+  Exemplo didático sem o uso o principio aberto fechado
+ </h3>
+ <p>
+  Para melhor entendermos esse principio vamos exemplificar criando inicialmente duas classes. Uma classe tem a responsabilidade de descrever a forma geométrica de um retângulo e outra classe tem a responsabilidade de calcular a soma das area de inúmeros triângulos. Para calcular a area de inúmeros triângulos a classe consta com um método que adiciona novos retângulos em uma lista e um método que soma todas as areas dos retângulos que estão na lista.
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    #código 1 - código que fere o principio aberto fechado
+    class Retangulo(object):
+
+        def __init__(self):
+            self.tipo ="Retangulo"
+            print("criado um Retangulo")
+
+    class CalculadoraDeAreas(object):
+
+        def __init__(self):
+            self.retangulos = []
+
+        def adicionaRetangulos(self,retangulos):
+            """metodo que serve para adicionar novas figuras na lista"""
+            self.retangulos.append(retangulos)
+
+        def somaAreaDosRetangulos(self):
+            """metodo que serve para somar as areas dos retangulos que estao na lista """
+            for retangulo in self.retangulos:
+                print("código que calcula a area do retangulo")
+                print("código que soma a area do retangulo"
+                        "calculada com area dos anteriores")
+
+    </pre>
+ </p>
+ <h3>
+  Testando o exemplo didático que não usa o principio aberto fechado
+ </h3>
+ <p>
+  Criado as classes iremos utilizá-las agora para calcular a soma de dois retângulos conforme código :
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+        r1 = Retangulo()
+        # criado um Retangulo
+        r2 = Retangulo()
+        # criado um Retangulo
+        cal = CalculadoraDeAreas()
+        cal.adicionaRetangulos(r1)
+        cal.adicionaRetangulos(r2)
+        cal.somaAreaDosRetangulos()
+        # código que calcula a area do retangulo
+        # código que soma a area do retangulo
+        # código que calcula a area do retangulo
+        # código que soma a area do retangulo
+    </pre>
+ </p>
+ <p>
+  Após vários testes nesse código chegamos a conclusão que ele está operando conforme as especificações iniciais.
+ </p>
+ <h3>
+  Estendendo o código que  não usa o principio aberto fechado
+ </h3>
+ <p>
+  Agora precisamos fazer uma extensão nesse código. Queremos que esse mesmo código calcule e some a area de círculos. Para realizar essa nova extensão precisamos criar uma nova classe que tem a responsabilidade de descrever a forma geométrica dos círculos. E também precisamos
+  <b>
+   modificar
+  </b>
+  a classe que calcula a area para acomodar a nova modificação. Para isso precisamos modificar essa classe para ter mais um método para adicionar os círculos na lista e modificar a função que calcula e soma as areas para acomodar as duas formas geométricas. A classe que descreve o retângulo ficara inalterada. O novo código esta descrito a baixo:
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    #código 2 - código que fere o principio aberto fechado
+    #extensão par que consiga calcular a area do circulo
+    class Circulo(object):
+
+        def __init__(self):
+            self.tipo ="Retangulo"
+            print("criado um Retangulo")
+
+    class CalculadoraDeAreas(object):
+
+        def __init__(self):
+            self.figuras = []
+
+        def adicionaRetangulos(self,retangulos):
+            """metodo que serve para adicionar novas figuras na lista"""
+            self.figuras.append(retangulos)
+
+        def adicionaCirculos(self,circulo):
+            """metodo que serve para adicionar novas figuras na lista"""
+            self.figuras.append(circulo)
+
+        def somaAreaDasFiguras(self):
+            """metodo que serve para somar as areas dos retangulos que estao na lista """
+            for figura in self.figuras:
+                if(figura.tipo == "retangulo"):
+                    print("código que calcula a area do retangulo")
+                if(figura.tipo == "circulo")
+                    print("código que calcula a area do circulo")
+
+                print("código que soma a nova area "+
+                        "calculada com as areas dos anteriores")
+
+    </pre>
+ </p>
+ <h3>
+  Testando o código estendido que não usa o principio aberto fechado
+ </h3>
+ <p>
+  Agora iremos testar esse novo código:
+ </p>
+ <pre class="brush: python; title: ; notranslate" title="">
+    r1 = Retangulo()
+    # criado um Retangulo
+    c1 = Circulo()
+    # criado um Circulo
+    cal = CalculadoraDeAreas()
+    cal.adicionaRetangulos(r1)
+    cal.adicionaCirculos(c1)
+    cal.somaAreaDasFiguras()
+    # código que calcula a area do retangulo
+    # código que soma as areas
+    # código que calcula a area do circulo
+    # código que soma as areas
+ </pre>
+ <p>
+  Novamente percebemos que o código está funcionando conforme as especificações. Utilizando o git (veja os tutoriais de como utilizar versionamento) vamos observar quantas linhas de códigos adicionadas e posteriormente alteradas. No código 1 foram adicionadas ao todo 28 linhas de códigos. No código 2 foram alteradas 25 linhas das 28 linhas de códigos inicialmente produzidas. Vamos imaginar que esse é um dos exemplos mais simples que se pode imaginar de software. Esse é o tipo de problema que você vai encontrar ao não utilizar o principio aberto fechado.
+ </p>
+ <h3>
+  Utilizando o principio aberto fechado
+ </h3>
+ <p>
+  O principal problema do exemplo anterior, que feria o principio aberto fechado, é que ao extender o programa para possuir um novo tipo de forma geométrica você teve que modificar a função  existente que calculava a soma das areas. Para que isso não aconteça vamos utilizar duas ferramentas da orientação ao objeto: polimorfismo e herança. São duas ferramentas que estão muito ligadas em outras linguagens como Java, C++. Porque, polimorfismo é gerado através do processo de herança (como explicado no post sobre herança e polimorfismo em java). Porém, em python isso não é verdade (como explicado no post sobre polimorfismo em python).
+ </p>
+ <p>
+  No livro de MARTIN [1] ele exemplifica esse principio utilizando C++. No caso do livro ele usa uma classe com dois métodos virtuais (que são implementados nas classes filhas) que é herdada por várias subclasses. Ele faz isso por dois motivos. O primeiro motivo é para poder utilizar o polimorfismo em C++. O segundo motivo é pela ideia central de herança. A ideia é que as classes podem possuir diferentes níveis abstração. Quanto mais genérico é a classe mais abstrata ela é, e quanto mais especifica mais concreta ela é.
+ </p>
+ <p>
+  Para trabalhar com o principio aberto fechado vai ser importante pensar no programa em níveis de abstração diferente e como usá-los para que seja possível extender comportamentos nas funções sem altera-las. Mesmo que no python não seja necessário para funcionar.
+ </p>
+ <h3>
+  Criando o código que usa o principio aberto fechado
+ </h3>
+ <p>
+  Para exemplificar a forma de desenvolvimento utilizando o principio aberto fechado vamos criar inicialmente 3 classes. A primeira classe sera uma classe com um nível maior de abstração que as outras. Essa classe sera a classe figuras geométricas, ela terá um único método chamado “calculaArea”. A segunda classe é uma classe Retangulo que herda e reimplementa o método “calculaArea”. E a terceira classe será a classe que soma as areas das figuras geométricas. As três classes ficam assim:
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    #código 3- refatoração do código 1
+    #para que as classes sigam o principio da responsabilidade aberto fechado
+    class Formas():
+        """Classe mais abstrata"""
+        def calculaArea(self):
+            pass
+
+    class Retangulo(Formas):
+        """Classe concreta """
+        def __init__(self):
+            self.tipo ="retangulo"
+            print("retangulo")
+
+        def calculaArea(self):
+            print("area do retangulo")
+
+    class CalculadoraGeometrica():
+        def __init__(self):
+            self.figuras = []
+
+        def adicionaFigura(self,figura):
+            self.figuras.append(figura)
+
+        def calulaAreaDasFiguras(self):
+            for figura in self.figuras:
+                figura.calculaArea()
+                print("soma da area nova com as antigas")
+
+    </pre>
+ </p>
+ <h3>
+  Testando o código que usa o principio aberto fechado
+ </h3>
+ <p>
+  Iremos agora criar os teste para verificar a funcionalidade.
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    r1 = Retangulo()
+    # retangulo
+    r2 = Retangulo()
+    # retangulo
+    cal = CalculadoraDeAreas()
+    cal.adicionaFigura(r1)
+    cal.adicionaFigura(r2)
+    cal.calulaAreaDasFiguras()
+    #area do retangulo
+    #soma da area nova com as antigas
+    #area do retangulo
+    #soma da area nova com as antigas
+    </pre>
+ </p>
+ <h3>
+  Extendendo o código que usa o principio aberto fechado
+ </h3>
+ <p>
+  Agora, como no exemplo passado vamos extender o código para possuir mais um funcionalidade, a de calculo e soma da area de um circulo. Para isso vamos criar outra classe que herda da classe Forma e implementa o calculo da area do circulo.
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    #codigo 4- extendendo as funcionalidades do codigo 3
+    #mantendo o principio aberto fechado
+    class Circulo(Formas):
+        """Classe concreta """
+        def __init__(self):
+            self.tipo ="circulo"
+            print("circulo")
+
+        def calculaArea(self):
+            print("area do circulo")
+    </pre>
+ </p>
+ <h3>
+  Testando o código estendido que usa o principio aberto fechado
+ </h3>
+ <p>
+  Como no exemplo anterior vamos testar a funcionalidade do nosso código usando as seguintes operações:
+ </p>
+ <p>
+  <pre class="brush: python; title: ; notranslate" title="">
+    r1 = Retangulo()
+    # retangulo
+    c1 = Circulo()
+    # circulo
+    cal = CalculadoraDeAreas()
+    cal.adicionaFigura(r1)
+    cal.adicionaFigura(c1)
+    cal.calulaAreaDasFiguras()
+    #area do retangulo
+    #soma da area nova com as antigas
+    #area do circulo
+    #soma da area nova com as antigas
+    </pre>
+ </p>
+ <p>
+  Como podemos observar a saída condiz com o esperado: calcula a area do retângulo, soma com as areas anteriores, calcula a area do circulo e soma com as areas antigas.
+  <a href="http://www.professormarcolan.com.br/tag/git/" rel="noopener" target="_blank">
+   De novo vamos ver quantas linhas de códigos foram adicionadas e mudadas utilizando o git
+  </a>
+  . O Código 3 foi adicionado 36 linhas de códigos foram feitas. O código 4 foi modificado apenas 11 linhas de códigos foram modificadas
+ </p>
+ <p>
+  Como podemos ver existe uma diminuição nas linhas de códigos que foram modificadas. O efeito será percebido de forma maior quando se possui mais extensões adicionadas ao código. Agora para fixar pegue os exemplos e adicione o calculo de area de uma figura triangular. Os códigos estarão no github.
+ </p>
+ <h2>
+  Liskov Substitutabilit Principle
+ </h2>
+ <p>
+  Nesse tutorial discutimos o principio aberto fechado. No próximo tutorial dos princípios SOLID vamos discutir sobre o principio
+  <i>
+   liskov substitutabilit
+  </i>
+  . Poste sua dúvida nos comentários. Para seguir as atualizações
+  <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+   se inscreva no canal do youtube
+  </a>
+  e
+  <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+   nos siga no facebook. em @professormarcolan
+  </a>
+  .
+ </p>
+</p>
+<p>
+ <ul>
+  <li>
+   [1] MARTIN, Robert C. Agile software development: principles, patterns, and practices. Prentice Hall, 2002.
+  </li>
+  <li>
+   [2] http://www.agilemodeling.com/essays/agileDocumentation.htm
+  </li>
+  <li>
+   [3] https://en.wikipedia.org/wiki/SOLID_(object-oriented_design)
+  </li>
+  <li>
+   [4] https://github.com/mikeknep/SOLID
+  </li>
+  <li>
+   [5] MARTIN, Robert C. Clean code: a handbook of agile software craftsmanship. Pearson Education, 2009.
+  </li>
+ </ul>
+</p>

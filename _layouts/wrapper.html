@@ -2,26 +2,27 @@
 <html>
 
 <head>
- {% include header.html %}
+    {% include header.html %}
 </head>
 
-    <body>
+<body>
+    {% include bodi.html color="blue"%}
 
-
-        {% include bodi.html color="blue"%}
-
-        <p>o conteudo vem do wrapper </p>
+    <p>o conteudo vem do wrapper 
         {{ content }}
+    </p>
+    
 
 
-        <p>
-            {% include pegar-assets.html color="blue"%}
-        </p>
+    <p>
+        {% include pegar-assets.html color="blue"%}
+    </p>
 
-    </body>
+</body>
 
-    <footer>
-
-    </footer>
+<footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/site/logica/logica1.js"></script>
+</footer>
 
 </html>

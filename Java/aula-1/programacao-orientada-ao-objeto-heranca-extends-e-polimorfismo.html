@@ -1,0 +1,100 @@
+<p>
+ Imagine recuperar todos dados e métodos e ainda por cima caso desejado poder modificar o funcionamento dessas funções. Imagine poder criar listas de objetos diferentes que tem aspectos em comum. Isso é possível a partir da programação orientada ao objeto utilizando os conceitos de herança e polimorfismo.
+</p>
+<h1>
+ Herança e o reuso de código
+</h1>
+<p>
+ Como discutido
+ <a href="http://www.professormarcolan.com.br/classe-e-objeto-em-java-aula-sobre-programacao-orientada-ao-objeto/">
+  no post Classes com JAVA
+ </a>
+ o paradigma da orientação ao objeto foca em unir dados e métodos em um objeto. [2]. Existem classes que possuem muitas caracteristicas em comum (e.g. a receita de bolo de chocolate com cobertura de morango, receita do bolo de chocolate com cobertura de chocolate). Usar o mecanismo de herança (extends) evita redundância de implementação de código. Redundância de código é um mal designe pois dificulta a manutenção. A herança (operador extends) é uma importante característica para ao reuso de algoritmos. [2] Diferentes classes podem ter comportamentos parecidos que podem ser generalizados em uma classe. Com o mecanismo de herança (extends) essa classe pode ser compartilhada por outras classes mais especificas. No processo de herança a classe mais especifica herda propriedades da classe mais geral. Por exemplo, no nosso exemplo didático podemos criar uma classe pai chamada de Bolo de Chocolate e uma classe filha chamada de Bolo de Chocolate com cobertura de Morango. Em Java quando uma classe C1 ( filha ) estende uma classe C2 ( pai) chamamos C1 de subclasse e C2 de superclasse. No Java a herança é feita a partir do modificador extends.
+</p>
+<figure class="wp-caption aligncenter" style="width: 1047px;">
+ <img alt="Exemplo de superclasse e subclasse" height="286" src="http://www.professormarcolan.com.br/wp-content/uploads/2018/03/javaExemploHeranca.png" style="width: 1047px; height: 286px;" title="Exemplo de superclasse e subclasse" width="1047"/>
+ <figcaption class="wp-caption-text">
+  Exemplo do mecanismo de heranca: superclasse (bolo de chocolate) e as suas múltiplas subclasses.
+ </figcaption>
+</figure>
+<h1>
+ Sobrescrever e sobrecarregar métodos
+</h1>
+<p>
+ Uma subclasse herda os métodos da superclasse porém em alguns momentos é necessário que as classes mais especificas modifiquem a implementação dos métodos. Isso pode ser feito pelo processo de Sobrescrever basta na subclasse rescrever com a mesma assinatura (mesmos parâmetros de entrada e saída) a função que ele deseja reescrever. Por exemplo na classe bolo de chocolate com morango ele pode, por exemplo, sobrescrever a função cobertura da superclasse pai. Outra abordagem que ainda pode ser feita é a de sobrecarregar os métodos nesse caso na mesma classe é possível passar e retornar outros parâmetros. Por exemplo, na classe bolo de chocolate com cobertura de chocolate ele pode, por exemplo, sobrecarregar a função cobertura para aceitar como parametro de entrada o tipo de chocolate da cobertura.
+</p>
+<h1>
+ Polimorfismo
+</h1>
+<p>
+ Um bom teste para um bom design de classes é fazer a seguinte pergunta “Faz sentido disser que o tipo A é do tipo B”.[1] Por exemplo um Gato é um Felino, um bolo de chocolate é um bolo. Entendemos que quando a classe B estende, herda, a classe A a casse B se torna a classe A. Assim, toda subclasse é uma especialização da superclasse. Toda instancia de uma subclasse também é uma instancia da superclasse porém o contrario não é verdade . Por exemplo todo bolo de chocolate com cobertura de morango (subclasse) é um bolo de chocolate(superclasse) mas nem todo bolo de chocolate é um bolo com cobertura de morango. Isso pode ser observado pelo diagrama de venns:
+</p>
+<figure class="wp-caption aligncenter" style="width: 420px;">
+ <img alt="Programação orientada ao objeto" height="378" src="http://www.professormarcolan.com.br/wp-content/uploads/2017/08/diagrama-de-venn.png" style="width: 420px; height: 378px;" title="Programação orientada ao objeto" width="420"/>
+ <figcaption class="wp-caption-text">
+  Diagrama de Venn : Bolos de chocolate com cobertura de morango, Bolos de chocolate com cobertura de chocolate, Bolos de chocolate com cobertura de bombom estão contidos em Bolos de chocolate.
+ </figcaption>
+</figure>
+<p>
+</p>
+<p>
+ é estabelecido que um tipo de objeto definido por uma subclasse é chamado de subtipo e um tipo definido por uma superclasse é um supertipo. Assim, um objeto criado por uma subclasse pode ser usado em qualquer lugar que poderia ser usado um objeto da superclasse. Isso é chamado de polimorfismo que vem do grego “muitas formas ” [2]. A partir do polimorfismo o programador pode criar container de dados mais genéricos para hospedar os vários tipos de subclasses.
+</p>
+<h1>
+ Próxima aula
+</h1>
+<p>
+ Outra coisa então que podemos perceber no processo de herança é que existe classes mais abstratas e classes mais concretas. Na verdade isso é um importante conceito em Java que iremos ver no próximo post. Iremos abordar os diferentes niveis de abstração. Para fixar melhor o conhecimento veja o vídeo pratico de programação em java.
+</p>
+<p>
+ Qualquer duvida deixe um comentário.
+</p>
+<p>
+ Poste sua dúvida nos comentários. Para seguir as atualizações
+ <a href="https://www.youtube.com/channel/UC9eGq_4v1Uu14Uznsey-hOg" rel="noopener" target="_blank">
+  se inscreva no canal do youtube
+ </a>
+ e
+ <a href="https://www.facebook.com/professormarcolan/" rel="noopener" target="_blank">
+  nos siga no facebook. em @professormarcolan
+ </a>
+ .
+</p>
+<h1>
+ Referencias
+</h1>
+<table>
+ <tbody>
+  <tr>
+   <th>
+    [1] FREEMAN, Eric et al. Head First Design Patterns: A Brain-Friendly Guide. ” O’Reilly Media, Inc.”, 2004.
+   </th>
+   <th>
+    <iframe frameborder="0" height="150" marginheight="0" marginwidth="0" scrolling="no" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=BR&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=jmarcolan-20&amp;marketplace=amazon&amp;region=BR&amp;placement=B00AA36RZY&amp;asins=B00AA36RZY&amp;linkId=07977550e53ff7121f98cd7d385028bd&amp;show_border=false&amp;link_opens_in_new_window=false&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;" width="300">
+     <br/>
+    </iframe>
+   </th>
+  </tr>
+  <tr>
+   <th>
+    [2] LIANG, Y. Daniel. Introduction to Java programming: brief version. Pearson, 2013.
+   </th>
+   <th>
+    <ul>
+     <li>
+      <iframe frameborder="0" height="150" marginheight="0" marginwidth="0" scrolling="no" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&amp;OneJS=1&amp;Operation=GetAdHtml&amp;MarketPlace=BR&amp;source=ac&amp;ref=tf_til&amp;ad_type=product_link&amp;tracking_id=jmarcolan-20&amp;marketplace=amazon&amp;region=BR&amp;placement=B00F5MO4GE&amp;asins=B00F5MO4GE&amp;linkId=1fc814f6a0a026a8a0ff4729bef71b10&amp;show_border=false&amp;link_opens_in_new_window=false&amp;price_color=333333&amp;title_color=0066c0&amp;bg_color=ffffff" style="width: 120px; height: 240px;" width="300">
+       <br/>
+      </iframe>
+     </li>
+    </ul>
+   </th>
+  </tr>
+  <tr>
+   <th>
+    [3] Vó Tere, Receitas de bolos deliciosos, 1980
+   </th>
+   <th>
+   </th>
+  </tr>
+ </tbody>
+</table>
