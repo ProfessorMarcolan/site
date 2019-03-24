@@ -175,3 +175,9 @@ h2 {
 	padding: .5em .5em .5em .6em;
 	border-radius: 5px 0em 0em
 }
+
+
+.video-card{
+	display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* fraction*/
+}
