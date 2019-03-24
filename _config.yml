@@ -54,11 +54,6 @@ defaults:
     values:
       layout: "post"
 
-  - scope:
-      path: ""
-      type: "py"
-    values:
-      layout: "post"
 #   # --- Collections ---
 # collections:
 #   Python:          { output: true }
