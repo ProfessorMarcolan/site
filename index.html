@@ -5,20 +5,55 @@ layout: default
 title: index
 ---
 
+<div class="container"> 
+    <div class="row"> 
+       <!-- <div class="col-md-2">
 
-<h2> Python </h2>
-<!-- <p>Cursos de python0</p> -->
-<div class="row">
-    {% include aulas.html sec= site.py  %}
-</div>
+          <ul>
+              <li>aulas</li>
+            </ul>
+       </div>
+         -->
+
+
+       <div class="col">
+
+          <h2> Python </h2>
+          <div>
+            
+            <div>
+                <p> Aulas sobre python</p> 
+                <p> Começe por :</p>
+            </div>
+          
+            <div>
+                {% include aulas.html sec= site.py  %}
+            </div>
+          </div>
+          <!-- <p>Cursos de python0</p> -->
+          
+          
+          
+          <h2> Curso de git </h2>
+          <div>
+            
+            <div>
+                <p> Curso sobre git</p> 
+                <p> Começe por :</p>
+            </div>
+          
+            <div>
+                {% include aulas.html sec= site.git  %}
+            </div>
+          </div>
+          
+          
+       </div> 
+    </div> 
+ </div>
 
 
 
-
-
-<h2> Curso de git </h2>
-<!-- <p>Cursos de python</p> -->
-  {% include aulas.html sec= site.git  %}
 
 
 

@@ -1,3 +1,5 @@
+
+/* para os cartão */
 .row {
     display: flex;
     flex-wrap: wrap;
@@ -5,5 +7,53 @@
  
  .row > div[class*='col-'] {
    display: flex;
+   padding: 10px 10px 20px 10px;
  }
+
+ .cartao-inicio{
+   padding: 20px;
+ }
+ .serie{
+   padding: 10px 0px 0px 10px;
+   background: blueviolet;
+ }
+
+ .break{
+   margin: 10px 0px 10px 0px;
+   padding:  10px 10px 10px 10px;
+   background: red;
+ }
+
+ .descricao-serie{
+  margin: 10px 0px 10px 0px;
+
+ }
+
  
+
+
+ /* navbar do site */
+ .navegador>ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navegador>ul>li {
+  float: left;
+}
+
+.navegador>ul>li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.navegador>ul>li a:hover {
+  background-color: #111;
+}
