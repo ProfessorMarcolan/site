@@ -1,3 +1,11 @@
+---
+layout: post
+title:  programacao-orientada-ao-objeto-em-python-recurso-do-composicao
+date:   2019-03-22 11:30:22 -0300
+author: "Joao PAgina"
+categories: jekyll update python variaveis
+permalink: programacao-orientada-ao-objeto-em-python-recurso-do-composicao
+---
 <p>
  No post passado
  <a href="https://professormarcolan.com.br/introducao-a-programacao-orientada-ao-objeto-em-python/" rel="noopener" target="_blank">
@@ -44,16 +52,26 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 1 - Criando a classe Calculadora
-    class Calculadora():
-        """Classe calculadora
-        """
-        def __init__(self):
-            self.bateria = Bateria()
-            self.entrada = TeclasCalculadora()
-            self.operacoes = Operacoes()
-            self.display = Display()
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 1 - Criando a classe Calculadora
+
+    class Calculadora():
+
+        """Classe calculadora
+
+        """
+
+        def __init__(self):
+
+            self.bateria = Bateria()
+
+            self.entrada = TeclasCalculadora()
+
+            self.operacoes = Operacoes()
+
+            self.display = Display()
+
     </pre>
 <h3>
  A classe bateria
@@ -63,25 +81,44 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 2 - Criando a classe bateria
-    class Bateria():
-        def __init__(self):
-            self.pcBateria =100
-            self.gasto =0.9
-
-        def uso(self):
-            self.pcBateria =self.pcBateria*self.gasto
-            self.getBateriaFraca()
-
-
-        def getBateriaFraca(self):
-            print(" tem " + str(self.pcBateria) + "% de bateira")
-            if(self.pcBateria &lt; 55):
-                print("bateria fraca")
-                return True
-            else:
-                return False
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 2 - Criando a classe bateria
+
+    class Bateria():
+
+        def __init__(self):
+
+            self.pcBateria =100
+
+            self.gasto =0.9
+
+
+
+        def uso(self):
+
+            self.pcBateria =self.pcBateria*self.gasto
+
+            self.getBateriaFraca()
+
+
+
+
+
+        def getBateriaFraca(self):
+
+            print(" tem " + str(self.pcBateria) + "% de bateira")
+
+            if(self.pcBateria &lt; 55):
+
+                print("bateria fraca")
+
+                return True
+
+            else:
+
+                return False
+
     </pre>
 <h3>
  A classe Teclas da Calculadora
@@ -91,19 +128,32 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 3 - Criando a classe responsável por ler a entrada da calculadora
-    class TeclasCalculadora():
-        def __init__(self):
-            self.valor1=0
-            self.valor2=0
-
-        def valorEntrada(self,v1,v2):
-            self.valor1=v1
-            self.valor2=v2
-
-        def getValor(self):
-            return [self.valor1,self.valor2]
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 3 - Criando a classe responsável por ler a entrada da calculadora
+
+    class TeclasCalculadora():
+
+        def __init__(self):
+
+            self.valor1=0
+
+            self.valor2=0
+
+
+
+        def valorEntrada(self,v1,v2):
+
+            self.valor1=v1
+
+            self.valor2=v2
+
+
+
+        def getValor(self):
+
+            return [self.valor1,self.valor2]
+
     </pre>
 <h3>
  A classe Operações
@@ -113,22 +163,38 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 4 - Criando a classe bateria
-    class Operacoes():
-
-        def soma(self, valores):
-            val=0
-            for v in valores:
-                val = val + v
-
-            return val
-
-        def subtracao(self, valores):
-            val=0
-            for v in valores:
-                val = val - v
-            return val
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 4 - Criando a classe bateria
+
+    class Operacoes():
+
+
+
+        def soma(self, valores):
+
+            val=0
+
+            for v in valores:
+
+                val = val + v
+
+
+
+            return val
+
+
+
+        def subtracao(self, valores):
+
+            val=0
+
+            for v in valores:
+
+                val = val - v
+
+            return val
+
     </pre>
 <h3>
  A classe Display
@@ -138,16 +204,26 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 5 - Criando a classe bateria
-    class Display():
-        def __init__(self):
-            self.brilhoTela= 20
-            self.textoTela ="0"
-
-        def mostraTexto(self, textoTela):
-            self.textoTela =textoTela
-            print(self.textoTela)
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 5 - Criando a classe bateria
+
+    class Display():
+
+        def __init__(self):
+
+            self.brilhoTela= 20
+
+            self.textoTela ="0"
+
+
+
+        def mostraTexto(self, textoTela):
+
+            self.textoTela =textoTela
+
+            print(self.textoTela)
+
     </pre>
 <h3>
  A classe Calculadora completa
@@ -157,23 +233,40 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 6 - Adicionando dois novos métodos a classe Calculadora
-    class Calculadora():
-        def __init__(self):
-            self.bateria = Bateria()
-            self.entrada = TeclasCalculadora()
-            self.operacoes = Operacoes()
-            self.display = Display()
-
-        def novaOperacao(self, valor1,valor2):
-            self.entrada.valorEntrada(valor1,valor2)
-            self.bateria.uso()
-
-        def soma(self):
-            soma = self.operacoes.soma(self.entrada.getValor())
-            self.display.mostraTexto(soma)
-            self.bateria.uso()
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 6 - Adicionando dois novos métodos a classe Calculadora
+
+    class Calculadora():
+
+        def __init__(self):
+
+            self.bateria = Bateria()
+
+            self.entrada = TeclasCalculadora()
+
+            self.operacoes = Operacoes()
+
+            self.display = Display()
+
+
+
+        def novaOperacao(self, valor1,valor2):
+
+            self.entrada.valorEntrada(valor1,valor2)
+
+            self.bateria.uso()
+
+
+
+        def soma(self):
+
+            soma = self.operacoes.soma(self.entrada.getValor())
+
+            self.display.mostraTexto(soma)
+
+            self.bateria.uso()
+
     </pre>
 <h3>
  Instanciando a classe calculadora
@@ -183,31 +276,56 @@
 </p>
 <p>
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 7 - Utilizand a classe Calculadora para realizar 3 somas diferentes.
-    cal1 = Calculadora()
-
-    cal1.novaOperacao(10,20)
-    # tem 90.0% de bateira
-    cal1.soma()
-    # 30
-    # tem 81.0% de bateira
-
-
-    cal1.novaOperacao(15,20)
-    # tem 72.9% de bateira
-    cal1.soma()
-    # 35
-    # tem 65.61% de bateira
-
-    cal1.novaOperacao(20,20)
-    # tem 59.049% de bateira
-    cal1.soma()
-
-    # 40
-    # tem 53.144100000000016% de bateira
-    # bateria fraca
-
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 7 - Utilizand a classe Calculadora para realizar 3 somas diferentes.
+
+    cal1 = Calculadora()
+
+
+
+    cal1.novaOperacao(10,20)
+
+    # tem 90.0% de bateira
+
+    cal1.soma()
+
+    # 30
+
+    # tem 81.0% de bateira
+
+
+
+
+
+    cal1.novaOperacao(15,20)
+
+    # tem 72.9% de bateira
+
+    cal1.soma()
+
+    # 35
+
+    # tem 65.61% de bateira
+
+
+
+    cal1.novaOperacao(20,20)
+
+    # tem 59.049% de bateira
+
+    cal1.soma()
+
+
+
+    # 40
+
+    # tem 53.144100000000016% de bateira
+
+    # bateria fraca
+
+
+
     </pre>
 <h2>
  Discução do recurso de composição da calculadora

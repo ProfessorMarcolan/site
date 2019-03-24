@@ -1,3 +1,11 @@
+---
+layout: post
+title:  encapsulamento-em-python
+date:   2019-03-22 11:30:22 -0300
+author: "Joao PAgina"
+categories: jekyll update python variaveis
+permalink: encapsulamento-em-python
+---
 <p>
  No post passado discutimos sobre os aspectos iniciais da programação orientada ao objeto.
  <a href="https://professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
@@ -42,28 +50,46 @@
 <p>
  O código 1 tem um exemplo de uma classe que contém um método fracamente privado – o método _primeiroMetodoFracamentePrivado, e também possui um atributo fracamente privado – o atributo _atributoFracamentePrivado.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 1 - exemplo de classe com itens fracamente privados
-    class PrimeiraClassFracamentePrivada():
-        def __init__(self):
-            self._atributoFracamentePrivado = 520741
-
-        def _primeiroMetodoFracamentePrivado(self):
-            print("método fracamente privado")
-
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 1 - exemplo de classe com itens fracamente privados
+
+    class PrimeiraClassFracamentePrivada():
+
+        def __init__(self):
+
+            self._atributoFracamentePrivado = 520741
+
+
+
+        def _primeiroMetodoFracamentePrivado(self):
+
+            print("método fracamente privado")
+
+
+
     </pre>
 <p>
  Após a criação da classe chamada PrimeiraClassFracamentePrivada nó código 2 ela é instanciada de forma a criar o objeto chamado p1. Com esse objeto é tentando acessar tanto o método quando o atributo fora da classe.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 2 - exemplo de classe com itens fracamente privados
-    p1 = PrimeiraClass()
-
-    p1._primeiroMetodoPrivado()
-    # método fracamente privado
-    print(p1._atributoPrivado)
-    # 520741
-
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 2 - exemplo de classe com itens fracamente privados
+
+    p1 = PrimeiraClass()
+
+
+
+    p1._primeiroMetodoPrivado()
+
+    # método fracamente privado
+
+    print(p1._atributoPrivado)
+
+    # 520741
+
+
+
     </pre>
 <p>
  Ao rodar o código 2 foi possível utilizar tanto o método quanto o atributo fracamente privado. Então, como citado na teoria tais itens ainda podem ser acessados fora da classe.
@@ -80,32 +106,54 @@
 <p>
  Para testar a teoria dos itens fortemente privados, no código 3, será criada um classe, PrimeiraClassFortementePrivada, que contem um atributo fortemente privado ( __atributoFrotementePrivado) e um método fortemente privado chamado __primeiroMetodoFrotementePrivado.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 3 - exemplo de classe com itens fortemente privado
-    class PrimeiraClassFortementePrivada():
-        def __init__(self):
-            self.__atributoFrotementePrivado = 520741
-
-        def __primeiroMetodoFrotementePrivado(self):
-            print("método fortemente privado")
-
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 3 - exemplo de classe com itens fortemente privado
+
+    class PrimeiraClassFortementePrivada():
+
+        def __init__(self):
+
+            self.__atributoFrotementePrivado = 520741
+
+
+
+        def __primeiroMetodoFrotementePrivado(self):
+
+            print("método fortemente privado")
+
+
+
     </pre>
 <p>
  Como no código 2 o código 4 vai tentar acessar os itens fortemente privados utilizando o método padrão.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 4 - acessando os itens fortemente privados
-    # utilizando o método padrão de aceso.
-
-    p2 = PrimeiraClassFortementePrivada()
-    # erro loco
-    p2._primeiroMetodoPrivado()
-    # AttributeError: 'PrimeiraClassFortementePrivada'
-    # object has no attribute '_primeiroMetodoPrivado'
-
-    print(p2.__atributoFrotementePrivado)
-    # AttributeError: 'PrimeiraClassFortementePrivada' 
-    # object has no attribute '__atributoFrotementePrivado
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 4 - acessando os itens fortemente privados
+
+    # utilizando o método padrão de aceso.
+
+
+
+    p2 = PrimeiraClassFortementePrivada()
+
+    # erro loco
+
+    p2._primeiroMetodoPrivado()
+
+    # AttributeError: 'PrimeiraClassFortementePrivada'
+
+    # object has no attribute '_primeiroMetodoPrivado'
+
+
+
+    print(p2.__atributoFrotementePrivado)
+
+    # AttributeError: 'PrimeiraClassFortementePrivada' 
+
+    # object has no attribute '__atributoFrotementePrivado
+
     </pre>
 <p>
  Acessando os itens fortemente privados
@@ -113,16 +161,26 @@
 <p>
  Ao tentar acessar os itens fortemente privados é gerado o erro “AtributeErro”- atributo não existe. Então, o método realmente não permite acessar os item da forma padrão. Porém, elas ainda podem ser acessadas. Para isso no código 5 é utilizado o método de “nome mutilado” do Python para acessar tais métodos. Como explicado na teoria tal método consistem em utilizar o nome da instancia seguido do operador ponto (.), sublinhado (_), nome da classe, nome do método.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-    #código 5 - acessando os itens fortemente privados
-    #utilizando o método de nome mutilado
-    p2 = PrimeiraClassFortementePrivada()
-
-    p2._PrimeiraClassFortementePrivada__primeiroMetodoFrotementePrivado()
-    # primeiro método frotemente privado implementado
-
-    print(p2._PrimeiraClassFortementePrivada__atributoFrotementePrivado)
-    # 520741
+<pre class="brush: python; title: ; notranslate" title="">
+
+    #código 5 - acessando os itens fortemente privados
+
+    #utilizando o método de nome mutilado
+
+    p2 = PrimeiraClassFortementePrivada()
+
+
+
+    p2._PrimeiraClassFortementePrivada__primeiroMetodoFrotementePrivado()
+
+    # primeiro método frotemente privado implementado
+
+
+
+    print(p2._PrimeiraClassFortementePrivada__atributoFrotementePrivado)
+
+    # 520741
+
     </pre>
 <p>
  A executar o código 5 conseguimos acessar os itens fortemente privados. O que significa que eles ainda podem ser acessados fora da classe como mostrado na teoria.

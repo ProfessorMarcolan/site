@@ -26,4 +26,14 @@
 <h2>{{ page.author }}</h2>
 <p> Adiciona o autor da pagina</p>
 
+<h2>python curses</h2>
+<ul>
+    {% for author in site.python %}
+      <li>
+        <h2><a href="{{ author.url }}">{{ author.title }}</a></h2>
+      </li>
+    {% endfor %}
+  </ul>
+
 {{ content }}
+

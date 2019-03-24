@@ -1,3 +1,11 @@
+---
+layout: post
+title:  introducao-a-programacao-em-python
+date:   2019-03-22 11:30:22 -0300
+author: "Joao PAgina"
+categories: jekyll update python variaveis
+permalink: introducao-a-programacao-em-python
+---
 <p>
  Nesse tutorial você irá entender a introdução a programação em Python . Podemos definir que um paradigma de programação é uma forma de classificar as linguagens de programação conforme os seus recursos. Começaremos discutindo o paradigma de programação estruturada. Em seguida começaremos a discutir
  <a href="https://www.professormarcolan.com.br/programacao-orientada-ao-objeto-classe-em-python/" rel="noopener" target="_blank">
@@ -42,14 +50,22 @@ Figura 1 – O primeiro bloco de código do Python é o próprio documento!
 <p>
  Vamos então criar nosso primeiro bloco de código e o invocá-lo. Segue o código 1.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-        # código 1
-        # bloco de código 1
-        def primeiraFuncao():
-            # bloco de código 1.1
-            pass
-        # bloco de código 1
-        primeiraFuncao()
+<pre class="brush: python; title: ; notranslate" title="">
+
+        # código 1
+
+        # bloco de código 1
+
+        def primeiraFuncao():
+
+            # bloco de código 1.1
+
+            pass
+
+        # bloco de código 1
+
+        primeiraFuncao()
+
         </pre>
 <p>
  O código 1 tem dois blocos de códigos. Sendo que um deles está dentro do outro. O primeiro bloco de código é o próprio documento e o segundo é a função “primeiraFuncao”. A estrutura desses dois blocos está apresentada de forma mais didática na figura 2 :
@@ -71,17 +87,28 @@ Figura 2 – Quando criamos uma função, também criamos um novo bloco de códi
 <p>
  Para entender melhor essa afirmação vamos refatorar o código 1 e adicionar a ele uma segunda função dentro da primeira função . O código 1 refatorado fica igual ao código 2.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-        # Código 2
-        # bloco de código 1
-        # 1
-        def primeiraFuncao():
-           # bloco de código 1.1
-           def primeiraFuncaoDentroDeOutra():
-              # bloco de código 1.1.1
-              print("helloMundo")
-           # bloco de código 1.1
-           primeiraFuncaoDentroDeOutra()
+<pre class="brush: python; title: ; notranslate" title="">
+
+        # Código 2
+
+        # bloco de código 1
+
+        # 1
+
+        def primeiraFuncao():
+
+           # bloco de código 1.1
+
+           def primeiraFuncaoDentroDeOutra():
+
+              # bloco de código 1.1.1
+
+              print("helloMundo")
+
+           # bloco de código 1.1
+
+           primeiraFuncaoDentroDeOutra()
+
         </pre>
 <p>
  Ao analisar a estrutura do nosso código percebemos que o bloco principal (chamado de um) tem um bloco definido dentro dele. Esse bloco de código chamamos de “primeiraFuncao”. Dentro do bloco 1.1 intitulado “primeirafuncao” definimos um bloco de códigos chamado de “primeiraFuncaoDentroDeOutra”. Um exemplo didático dessa afirmação pode ser visto na figura 3:
@@ -97,20 +124,30 @@ Figura 3 – Análise de estrutura de blocos do código 2
 <p>
  Agora dentro da identação do código 1 iremos invocar a “primeiraFuncao()”. Para isso iremos adicionar o código conforme o código 3.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-        # Código 3 - Invocando uma função
-        # bloco de código 1
-        primeiraFuncao()
-        # helloMundo
+<pre class="brush: python; title: ; notranslate" title="">
+
+        # Código 3 - Invocando uma função
+
+        # bloco de código 1
+
+        primeiraFuncao()
+
+        # helloMundo
+
         </pre>
 <p>
  O resultado escrito em nosso prompt sera “helloMundo”. Agora para testar iremos tentar chamar a função primeiraFuncaoDentroDeOutra dentro do primeiro bloco de código. O código criado será como o descrito no código 3.
 </p>
-<pre class="brush: python; title: ; notranslate" title="">
-        # Código 3 -Invocando uma função
-        # bloco de código 2
-        primeiraFuncaoDentroDeOutra()
-        # primeiraFuncaoDentroDeOutra' is not defined
+<pre class="brush: python; title: ; notranslate" title="">
+
+        # Código 3 -Invocando uma função
+
+        # bloco de código 2
+
+        primeiraFuncaoDentroDeOutra()
+
+        # primeiraFuncaoDentroDeOutra' is not defined
+
         </pre>
 <p>
  O resultado da execução do código 3 será não existe essa função definida. Mas, o código 2 funcionou porque será que esse código não funcionou? Esse código não funcionou porque a definição da função “primeiraFuncaoDentroDeOutra” só vive dentro do bloco que código no qual ela foi denifinida.

@@ -1,0 +1,15 @@
+---
+title: todos os posts de python
+author: joao
+---
+
+<ul>
+    {% for author in site.python %}
+      <li>
+        <h2><a href="{{ author.url }}">{{ author.title }}</a></h2>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+  introducao-a-programacao-orientada-ao-objeto-em-python

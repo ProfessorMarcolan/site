@@ -1,3 +1,11 @@
+---
+layout: post
+title:  polimorfismo-em-python
+date:   2019-03-22 11:30:22 -0300
+author: "Joao PAgina"
+categories: jekyll update python variaveis
+permalink: polimorfismo-em-python
+---
 <p>
  Polimorfismo é a ferramenta da programação orientada ao objeto que permite implementações elegantes de software. Porém, muito mais importante que isso é que essa ferramenta permite, caso seja necessário, que o software seja facilmente modificado. Nesse post, de 5 minutos, vamos explorar definir o que é polimorfismo em Python e exemplificar o uso do polimorfismo. [10]
 </p>
@@ -40,9 +48,12 @@ Figura 1 : Diagrama UML de um exemplo de polimorfismo em Python
 </p>
 <div data-datacamp-exercise="" data-lang="python">
  <code data-type="sample-code">
-  # código 1 - classe abstra
-class FormaGeometrica():
-def calc_area(self):
+  # código 1 - classe abstra
+
+class FormaGeometrica():
+
+def calc_area(self):
+
 pass
  </code>
 </div>
@@ -54,24 +65,39 @@ pass
 </p>
 <div data-datacamp-exercise="" data-lang="python">
  <code data-type="pre-exercise-code">
-  class FormaGeometrica():
-def calc_area(self):
+  class FormaGeometrica():
+
+def calc_area(self):
+
 pass
  </code>
  <code data-type="sample-code">
-  # código 2 implementacao das classes concretas
-class Quadrado(FormaGeometrica):
-def __init__(self,base):
-self.base = base
-
-def calc_area(self):
-return self.base * self.base
-
-class Circulo(FormaGeometrica):
-def __init__(self, raio):
-self.raio = raio
-
-def calc_area(self):
+  # código 2 implementacao das classes concretas
+
+class Quadrado(FormaGeometrica):
+
+def __init__(self,base):
+
+self.base = base
+
+
+
+def calc_area(self):
+
+return self.base * self.base
+
+
+
+class Circulo(FormaGeometrica):
+
+def __init__(self, raio):
+
+self.raio = raio
+
+
+
+def calc_area(self):
+
 return self.raio * self.raio * 3.14
  </code>
 </div>
@@ -86,39 +112,69 @@ return self.raio * self.raio * 3.14
 </p>
 <div data-datacamp-exercise="" data-lang="python">
  <code data-type="pre-exercise-code">
-  class FormaGeometrica():
-def calc_area(self):
-pass
-
-class Quadrado(FormaGeometrica):
-def __init__(self,base):
-self.base = base
-
-def calc_area(self):
-print("calculo a area de um quadrado")
-return self.base * self.base
-
-class Circulo(FormaGeometrica):
-def __init__(self, raio):
-self.raio = raio
-
-def calc_area(self):
-print("calculo a area de um circulo")
+  class FormaGeometrica():
+
+def calc_area(self):
+
+pass
+
+
+
+class Quadrado(FormaGeometrica):
+
+def __init__(self,base):
+
+self.base = base
+
+
+
+def calc_area(self):
+
+print("calculo a area de um quadrado")
+
+return self.base * self.base
+
+
+
+class Circulo(FormaGeometrica):
+
+def __init__(self, raio):
+
+self.raio = raio
+
+
+
+def calc_area(self):
+
+print("calculo a area de um circulo")
+
 return self.raio * self.raio * 3.14
  </code>
  <code data-type="sample-code">
-  # código 3 polimorfismo
-quad1 = Quadrado(2)
-quad2 = Quadrado(3)
-cir1 = Circulo(1)
-cir2 = Circulo(2)
-
-formas_geometricas = [quad1, quad2 , cir1, cir2]
-
-soma=0
-for forma in formas_geometricas:
-soma = soma + forma.calc_area()
-
+  # código 3 polimorfismo
+
+quad1 = Quadrado(2)
+
+quad2 = Quadrado(3)
+
+cir1 = Circulo(1)
+
+cir2 = Circulo(2)
+
+
+
+formas_geometricas = [quad1, quad2 , cir1, cir2]
+
+
+
+soma=0
+
+for forma in formas_geometricas:
+
+soma = soma + forma.calc_area()
+
+
+
 print("a area foi de {}".format(soma))
  </code>
 </div>

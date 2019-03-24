@@ -13,3 +13,14 @@ layout: wrapper
 {% for post in site.pages %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
 {% endfor %}
+
+
+<h2> Isso esta na pagina Python</h2>
+
+{% for post in site.pages %}
+    <li><a href="{{ site.python.url }}">{{ site.python.title }}</a></li>
+{% endfor %}
+
+{% for post in site.pages %}
+    <li><a href="{{ site.Python.url }}">{{ site.Python.title }}</a></li>
+{% endfor %}
