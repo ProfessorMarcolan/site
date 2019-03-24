@@ -1,8 +1,10 @@
 ---
-    layout: "wrapper"
+    layout: "default"
     author: "Joao"
 ---
 
+<h2>{{ page.title }}</h2>
+<!-- 
 {%if page.title == "Aula 2" %}
     This is the firs post 
 
@@ -17,7 +19,7 @@
 <p> Adiciona o autor do layout</p>
 
 
-<h2>{{ page.title }}</h2>
+
 
 <p>
     Adiciona o titulo da pagian
@@ -33,7 +35,7 @@
         <h2><a href="{{ author.url }}">{{ author.title }}</a></h2>
       </li>
     {% endfor %}
-  </ul>
+  </ul> -->
 
 {{ content }}
 

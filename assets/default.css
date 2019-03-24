@@ -1,0 +1,177 @@
+h2 {
+    color: aquamarine;
+}
+
+.cartao {
+    background: magenta;
+}
+
+
+.video-card .video-header .thumb-container .video-badge {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: #49BB6C;
+	color: #FFF;
+	font-family: "cubanoregular";
+	letter-spacing: .4;
+	font-size: 2rem;
+	padding: .5em .5em .5em .6em;
+	border-radius: 5px 0em 0em
+}
+
+@media (hover: hover) {
+	.video-card:hover {
+		transform: translateY(-5px)
+	}
+}
+
+.video-card>a {
+	text-decoration: none;
+	color: #222
+}
+
+.video-card .video-header .thumb-container {
+	width: 100%;
+	height: auto;
+	position: relative
+}
+
+.video-card .video-header .thumb-container .video-badge {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: #49BB6C;
+	color: #FFF;
+	font-family: "cubanoregular";
+	letter-spacing: .4;
+	font-size: 2rem;
+	padding: .5em .5em .5em .6em;
+	border-radius: 5px 0em 0em
+}
+
+.video-card .video-header .video-thumbnail {
+	width: 35rem;
+	height: 19.6875rem;
+	background-size: cover;
+	background-position: center
+}
+
+.video-card .video-header h3 {
+	font-size: 2rem;
+	padding: 1.25em .5em .4em 1em;
+	margin: 0;
+	text-align: left
+}
+
+.video-card .video-header .video-date {
+	color: #888;
+	font-size: 1.5rem;
+	padding: 0em 1.25em
+}
+
+.video-card .video-description {
+	padding: 0 1.25em 1.5em 1.25em;
+	flex: 1
+}
+
+.video-card .video-description ul {
+	padding-left: 1.5em
+}
+
+.video-card .buttons {
+	display: flex;
+	justify-content: space-between;
+	padding: 0em 2rem 1rem
+}
+
+@media (max-width: 550px) {
+	.video-card .buttons {
+		flex-wrap: wrap
+	}
+}
+
+.video-card .buttons a {
+	font-size: 1.5rem;
+	background: #9659A7;
+	color: #FFF;
+	flex-grow: 2;
+	margin-left: .25em;
+	margin-right: .25em;
+	padding: 15px
+}
+
+
+/* para formatar a série */
+.series-index .series {
+	margin-top: 10rem
+}
+
+.series-index .series h3 {
+	text-align: center
+}
+
+.series-index .series .subtitle {
+	font-size: 1.6rem
+}
+
+
+
+.video-list {
+	text-align: center
+}
+
+.video-list .videos {
+	text-align: left;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around
+}
+
+.video-list .videos .video-card {
+	margin-top: 2rem
+}
+
+.video-list a.watch-all-button {
+	color: #FFF;
+	background: #49BB6C;
+	margin: 2rem auto 0
+}
+
+.video-list a.watch-all-button:hover {
+	box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.06);
+	transform: scale(.98)
+}
+
+.video-list a.watch-all-button {
+	display: inline-block;
+	border-radius: 5px;
+	background: #FFF;
+	padding: 20px;
+	border: none;
+	text-decoration: none;
+	vertical-align: middle;
+	text-align: center;
+	box-shadow: 0px 6px 0px 0px rgba(0, 0, 0, 0.06);
+	transition: all 150ms cubic-bezier(.4, 0, .2, 1);
+	transform: scale(1)
+}
+
+.video-list a.watch-all-button {
+	font-family: "cubanoregular";
+	letter-spacing: .4;
+	font-weight: normal
+}
+
+.video-card .video-header .thumb-container .video-badge {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	background: #49BB6C;
+	color: #FFF;
+	font-family: "cubanoregular";
+	letter-spacing: .4;
+	font-size: 2rem;
+	padding: .5em .5em .5em .6em;
+	border-radius: 5px 0em 0em
+}
