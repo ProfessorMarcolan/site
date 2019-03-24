@@ -10,7 +10,7 @@ title: index
 <p>Cursos de python0</p>
 
 <ul>
-    {% for author in site.python %}
+    {% for author in site.py %}
       <li>
         <h2><a href="{{ author.url }}">{{ author.title }}</a></h2>
       </li>
