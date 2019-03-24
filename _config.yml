@@ -32,7 +32,7 @@ plugins:
   
  # --- Collections ---
 collections:
-  python:         
+  py:         
     output: true 
   posts:            
     output: true 
@@ -56,7 +56,7 @@ defaults:
 
   - scope:
       path: ""
-      type: "python"
+      type: "py"
     values:
       layout: "post"
 #   # --- Collections ---
