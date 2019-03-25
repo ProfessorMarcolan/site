@@ -37,35 +37,71 @@
     {% endfor %}
   </ul> -->
 
-
-<div class="container">
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-            <div class="col-md-6 px-0">
-              
-              <h1 class="display-8 font-italic"> {{ page.title }}</h1>
-              <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-              <!-- <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p> -->
+  <div class="fundo">
+      <div class="container ">
+          <div  class="header">
+      
+            
+            <div class="row">
+                <div class="col">
+                    <h1 class=""> {{ page.title }}</h1>
+                    <p>Multiple lines of text that form the lede, informing new readers quickly and efficiently
+                      about what’s most interesting in this post’s contents.</p>
+                </div>
+      
+                <div class="col">
+                    <img class="card-img-top img-fluid" src="//placehold.it/250x250" alt="Card image cap">
+                  </div>
+      
             </div>
           </div>
+            
+            <!-- <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+                <div class="col-md-6 px-0">
+            
+                  <h1 class="display-8 font-italic"> {{ page.title }}</h1>
+                  <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently
+                    about what’s most interesting in this post’s contents.</p>
+      
+                </div>
+              </div> -->
+        </div>
+    
+  </div>
 
-<div class="row">
-    <div class="col-md-4">
-      <div>
-          {% for author in site.py %}
-          <ul>
-              <li> <a href="{{ author.url }}">{{ author.title }}</a></li>
-          </ul>
-          {% endfor %}
-      </div>
-        
-    </div>
 
-    <div class="col">
-      <div>
-          {{ content }}
-      </div>
+
+<div class="container">
+  
+
+  <div class="row">
+    <div class="col-2">
+      <div style=" background: red;display: fixed;">
+        {% for author in site.py %}
+        <div style="padding: 10px 10px 10px 10px; background: green; margin: 10px 10px 10px 10px;">
+            <a href="{{ author.url }}" {% if author.url == page.url %} class="selecionado"
+            {% endif %}>{{ author.title }}</a>
+        </div>
+        <!-- <ul>
+          <li> <a href="{{ author.url }}" {% if author.url == page.url %} class="selecionado"
+              {% endif %}>{{ author.title }}</a></li>
+        </ul> -->
+        {% endfor %}
+
+        <img class="card-img-top" src="/assets/professor-marcolan-logo.png"  style="width:auto;height:150px;"
+    alt="Card image cap"></div>
        
+      </div>
+
+    <!-- </div> -->
+  
+
+    <div class="col-10">
+      <div>
+        {{ content }}
+      </div>
+
     </div>
 
-</div>
+  </div>
 </div>

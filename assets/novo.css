@@ -3,7 +3,10 @@
 .row {
     display: flex;
     flex-wrap: wrap;
+  
  }
+
+
  
  .row > div[class*='col-'] {
    display: flex;
@@ -15,13 +18,14 @@
  }
  .serie{
    padding: 10px 0px 0px 10px;
-   background: blueviolet;
+   background: rgb(29, 50, 145);
+   margin:  10px 10px 10px 10px;
  }
 
  .break{
    margin: 10px 0px 10px 0px;
    padding:  10px 10px 10px 10px;
-   background: red;
+   /* background: red; */
  }
 
  .descricao-serie{
@@ -30,9 +34,18 @@
  }
 
  
-
+.card:hover{
+  background:hsl(63, 72%, 59%);;
+}
 
  /* navbar do site */
+ .navegador{
+  background: hsl(218, 47%, 92%);
+  color:hsl(63, 72%, 59%);
+ }
+ .text-muted:hover{
+ background:hsl(63, 72%, 59%);
+ }
  .navegador>ul {
   list-style-type: none;
   margin: 0;
@@ -57,3 +70,29 @@
 .navegador>ul>li a:hover {
   background-color: #111;
 }
+
+
+.selecionado{
+  color: brown;
+  background: #111;
+  padding: 5px 5px;
+
+}
+
+.texto-serie ~ .container{
+  background: aquamarine;
+  font-size: 20px;
+}
+
+
+
+.header{
+  padding: 10px 10px 20px 10px;
+    color: beige;
+    background: #343a40;
+}
+
+
+/* .fundo{
+  background-image: url("/assets/professor-marcolan-logo.png");
+} */
