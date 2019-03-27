@@ -1,6 +1,6 @@
 
 /* para os cartão */
-.row {
+/* .row {
     display: flex;
     flex-wrap: wrap;
   
@@ -11,7 +11,7 @@
  .row > div[class*='col-'] {
    display: flex;
    padding: 10px 10px 20px 10px;
- }
+ } */
 
  .cartao-inicio{
    padding: 20px;
@@ -92,7 +92,17 @@
     background: #343a40;
 }
 
-
+img{
+  width:100%;
+  max-width:1000px;
+}
 /* .fundo{
   background-image: url("/assets/professor-marcolan-logo.png");
 } */
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}

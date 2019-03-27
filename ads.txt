@@ -1,0 +1,11 @@
+sovrn.com, 260873, DIRECT, fafdf38b16bf6b2b
+google.com, pub-5400208836705527, DIRECT, f08c47fec0942fa0
+lijit.com, 260873, DIRECT, fafdf38b16bf6b2b
+gumgum.com, 11645, RESELLER, ffdef49475d318a9
+openx.com, 537120960, RESELLER
+openx.com, 83499, RESELLER
+openx.com, 538959099, RESELLER
+pubmatic.com, 137711, RESELLER
+pubmatic.com, 156212, RESELLER
+pubmatic.com, 62483, RESELLER
+contextweb.com, 558511, RESELLER
