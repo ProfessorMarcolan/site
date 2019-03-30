@@ -5,38 +5,60 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
 
 
 
-  function pega_code(id_codigo, url_codigo){
+  function _get_equal_espaco(element, control, numero){
 
-    $.ajax({url: url_codigo}).done(function( data ) {
+    if(Number(element.replace("# inicio codigo ","")) === Number(numero)){
+      control = true
+    }
+    if(Number(element.replace("# fim codigo ","")) === Number(numero)){
+      control = false
+    }
 
-      var re_compare = /\s*\n\s*/;
-      let token = data.split(re_compare)
+    return control
+    
+  }
 
-      // /\s*\n\s*/
-      var re_text = "\n";
-      let token_text = data.split(re_text)
 
+  function _selecionar_parte_codigo(token, numero){
+      // seleciona a parte do código que quer pegar
       let control = false
       let texto = ""
-
-      token_text.forEach( element =>{
-
-          if(Number(element.replace("# inicio codigo ","")) === Number(1)){
-            control = true
-          }
-          if(Number(element.replace("# fim codigo ","")) === Number(1)){
-            control = false
-          }
-        
-        
+      token.forEach( element =>{
+        if(numero === -1){
+          control = true
+        }else{
+          control = _get_equal_espaco(element,control, numero)
+        }
         
         if(control){
           texto = texto +"\n"+ element
           console.log(texto)
         }
       })
+      return texto
+
+  }
+
+  function _get_token(data){
+    var re_text = "\n";
+    let token_text = data.split(re_text)
+    return token_text
+  }
 
 
+  // pega o codigo e leva para a iunterface gráfica
+  function pega_code(id_codigo, url_codigo, numero){
+
+    $.ajax({url: url_codigo}).done(function( data ) {
+
+      // var re_compare = /\s*\n\s*/;
+      // let token = data.split(re_compare)
+
+      // /\s*\n\s*/
+      let token_text = _get_token(data)
+      
+
+      let texto = _selecionar_parte_codigo(token_text,numero)
 
       var textnode = document.createTextNode(texto);         // Create a text node                            // Append the text to <li>
       document.getElementById(id_codigo).appendChild(textnode); 
@@ -59,7 +81,7 @@ function set_all_codigos(codigos){
 
   codigos["codes"].forEach(element => {
     console.log(element)
-    pega_code(element["id"],element["path"]);
+    pega_code(element["id"],element["path"], element["numero"]);
   });
 
 
