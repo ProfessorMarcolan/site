@@ -116,3 +116,11 @@
   margin-right: auto;
   margin-left: auto;
 } */
+
+
+.codigo-path{
+  text-align: right;
+ background: red;
+ padding: 10px 10px 10px 10px;
+ 
+}

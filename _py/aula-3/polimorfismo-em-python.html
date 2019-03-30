@@ -7,15 +7,15 @@ categories: jekyll update python variaveis
 permalink: polimorfismo-em-python
 
 code:
-    -path_original: "/py/aula-3/src/"
+    path_original: "/py/aula-3"
     codes:
-      - path: "/py/aula-3/src/codigo1.py"
+      - path: "/src/codigo1.py"
         id: "pythonCode-1"
         numero: 1
-      - path: "/py/aula-3/src/codigo1.py"
+      - path: "/src/codigo1.py"
         id: "pythonCode-2"
         numero: 2
-      - path: "/py/aula-3/src/codigo1.py"
+      - path: "/src/codigo1.py"
         id: "pythonCode-3"
         numero: -1
 ---
@@ -249,15 +249,20 @@ print("a area foi de {}".format(soma))
 
 <div>
     <div>
-        {% include codegos.html  id="pythonCode-1" %}
+
+      <!-- como passa variavel para o includ a font : https://jekyllrb.com/docs/includes/#passing-parameter-variables-to-includes -->
+        {% capture download_note %}
+         {{ page.code.codes[0].path }}
+        {% endcapture %}
+        {% include codegos.html path= download_note id="pythonCode-1" %}
         </div>
     
         <div>
-         {% include codegos.html id="pythonCode-2"%}
+         {% include codegos.html id="pythonCode-2" path= "src/code1.py" %}
         </div>
 
         <div>
-            {% include codegos.html id="pythonCode-3"%}
+            {% include codegos.html id="pythonCode-3" path= "src/code1.py" %}
         </div>
 </div>
 

@@ -40,6 +40,10 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
   }
 
   function _get_token(data){
+    // var re_compare = /\s*\n\s*/;
+    // let token = data.split(re_compare)
+
+    // /\s*\n\s*/
     var re_text = "\n";
     let token_text = data.split(re_text)
     return token_text
@@ -51,22 +55,13 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
 
     $.ajax({url: url_codigo}).done(function( data ) {
 
-      // var re_compare = /\s*\n\s*/;
-      // let token = data.split(re_compare)
-
-      // /\s*\n\s*/
-      let token_text = _get_token(data)
       
-
+      let token_text = _get_token(data)
       let texto = _selecionar_parte_codigo(token_text,numero)
 
       var textnode = document.createTextNode(texto);         // Create a text node                            // Append the text to <li>
       document.getElementById(id_codigo).appendChild(textnode); 
-
       Prism.highlightElement($("#"+id_codigo)[0]);
-
-      // var block = document.getElementById('pythonCode')
-      // Prism.highlightElement(block);
     }
     
   );
@@ -79,9 +74,11 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
 function set_all_codigos(codigos){
   console.log(codigos)
 
+  let path = codigos["path_original"]
   codigos["codes"].forEach(element => {
-    console.log(element)
-    pega_code(element["id"],element["path"], element["numero"]);
+    // console.log(element)
+    console.log( path + element["path"])
+    pega_code(element["id"],path + element["path"], element["numero"]);
   });
 
 
