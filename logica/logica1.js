@@ -85,3 +85,16 @@ function set_all_codigos(codigos){
   // pega_code("pythonCode","/py/aula-3/src/codigo1.py");
   // pega_code("pythonCode2","/py/aula-3/src/codigo1.py");
 }
+
+
+
+$( document ).ready(function() {
+  let todas_imagens= $("img")
+  todas_imagens.each((index, element) => {
+    console.log(element)
+    element.className= element.className + " img-fluid"
+    // element = element.className + " img-fluid"
+
+    // console.log(element.className + " img-fluid")
+  })
+});
