@@ -23,12 +23,17 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
 
   }
 
-function tryMe(arg) {
-    document.write(arg);
-}
 
 
-function set_all_codigos(){
-  pega_code("pythonCode","/py/aula-3/src/codigo1.py");
-  pega_code("pythonCode2","/py/aula-3/src/codigo1.py");
+function set_all_codigos(codigos){
+  console.log(codigos)
+
+  codigos["codes"].forEach(element => {
+    console.log(element)
+    pega_code(element["id"],element["path"]);
+  });
+
+
+  // pega_code("pythonCode","/py/aula-3/src/codigo1.py");
+  // pega_code("pythonCode2","/py/aula-3/src/codigo1.py");
 }
