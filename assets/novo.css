@@ -111,18 +111,23 @@
 
 /* construindo as principais cores do site */
 body{
-  background: white ;
+  background: #19191af1 ;
+  /* background:  hsl(180, 2%, 11%); */
 }
 .corpo-texto{
   padding: 10px 10px 10px 10px; 
-  background: #a4bbc7f9 ;
-  
+  background: hsla(180, 2%, 11%, 0.288) ;
+  color: rgb(216, 216, 216);
+  font-size: 22px;
+  font-family: "source sans pro";
+
 }
 
 /* menu */
 
 .menu{
-  background: red;
+ padding: 5px 5px 5px 5px;
+  background: rgba(37, 36, 36, 0.788);
   display: fixed;
 }
 
@@ -130,15 +135,24 @@ body{
  
   display: fixed;
   padding: 10px 10px 10px 10px; 
-  background: green; 
+  /* background: hsl(60, 100%, 75%);  */
+  /* background: rgba(246, 255, 166, 0.932); */
+  background: #00486bff;
   margin: 10px 10px 10px 10px;
+
+}
+
+.menu-itens > a {
+/* color: rgb(0, 0, 0); */
+
 
 }
 
 
 .select-item{
-  color: brown;
-  background: #111;
+  color: hsl(221, 61%, 51%);
+  background: #ffff00ff;
   padding: 5px 5px;
+  /* color: #fff; */
 
 }
