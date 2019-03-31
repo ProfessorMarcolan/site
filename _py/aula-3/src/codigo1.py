@@ -5,6 +5,7 @@ class FormaGeometrica():
         pass
 
 # fim codigo 1
+
 # inicio codigo 2
 class classe2(): 
     def calc_area(self):

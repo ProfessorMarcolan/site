@@ -38,7 +38,7 @@ author: "Joao"
   <div class="row">
 
     <div class="col-lg-9">
-      <div style="padding: 10px 10px 10px 10px; background: hsl(100, 90%, 80%)">
+      <div class="corpo-texto">
         {{ content }}
 
       </div>
@@ -51,16 +51,10 @@ author: "Joao"
     <div class="col-lg-3">
 
       <div>
-        <div style=" background: red;display: fixed;">
-          {% for author in site.py %}
-          <div style="padding: 10px 10px 10px 10px; background: green; margin: 10px 10px 10px 10px;">
-            <a href="{{ author.url }}" {% if author.url == page.url %} class="selecionado"
-              {% endif %}>{{ author.title }}</a>
-          </div>
-          {% endfor %}
-      
+        
+        {% include navegador.html menu = site.py %}
 
-      </div>
+
       <img class="card-img-top" src="/assets/professor-marcolan-logo.png"
             style="width:auto;height:150px;" alt="Card image cap"></div>
       <div>

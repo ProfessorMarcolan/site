@@ -1,0 +1,12 @@
+
+
+<div class = "menu">
+    {% for author in include.menu  %}
+    <div class ="menu-itens" >
+      <a href="{{ author.url }}" {% if author.url == page.url %} class="select-item"
+        {% endif %}>{{ author.title }}</a>
+    </div>
+    {% endfor %}
+
+
+</div>

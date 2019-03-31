@@ -1,18 +1,4 @@
 
-/* para os cartão */
-/* .row {
-    display: flex;
-    flex-wrap: wrap;
-  
- }
-
-
- 
- .row > div[class*='col-'] {
-   display: flex;
-   padding: 10px 10px 20px 10px;
- } */
-
  .cartao-inicio{
    padding: 20px;
  }
@@ -80,17 +66,12 @@
 }
 
 
-.selecionado{
-  color: brown;
-  background: #111;
-  padding: 5px 5px;
 
-}
-
+/* 
 .texto-serie ~ .container{
   background: aquamarine;
   font-size: 20px;
-}
+} */
 
 
 
@@ -120,7 +101,44 @@
 
 .codigo-path{
   text-align: right;
- background: red;
- padding: 10px 10px 10px 10px;
+ background: hsl(234, 100%, 50%);
+ margin: -15px;
+ padding: 0px 10px 0px 0px;
  
+}
+
+
+
+/* construindo as principais cores do site */
+body{
+  background: white ;
+}
+.corpo-texto{
+  padding: 10px 10px 10px 10px; 
+  background: #a4bbc7f9 ;
+  
+}
+
+/* menu */
+
+.menu{
+  background: red;
+  display: fixed;
+}
+
+.menu-itens{
+ 
+  display: fixed;
+  padding: 10px 10px 10px 10px; 
+  background: green; 
+  margin: 10px 10px 10px 10px;
+
+}
+
+
+.select-item{
+  color: brown;
+  background: #111;
+  padding: 5px 5px;
+
 }
