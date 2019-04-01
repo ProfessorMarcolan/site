@@ -39,6 +39,7 @@
  .navegador{
   background: hsl(218, 47%, 92%);
   color:hsl(63, 72%, 59%);
+  font-size: 20px;
  }
  .text-muted:hover{
  background:hsl(63, 72%, 59%);
@@ -113,7 +114,7 @@
 
 
 h2{
-  font-size: 35px;
+  font-size: 31px;
   color: beige;
 }
 
@@ -135,7 +136,7 @@ body{
   padding: 10px 10px 10px 10px; 
   background: hsla(180, 2%, 11%, 0.288) ;
   color: rgb(216, 216, 216);
-  font-size: 20px;
+  font-size: 18px;
   font-family: "source sans pro";
 
 }

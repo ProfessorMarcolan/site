@@ -87,14 +87,24 @@ function set_all_codigos(codigos){
 }
 
 
+function pegar_titulos(){
+  console.log("oi")
+  $("h2").each((index, element) =>{
+    $("#todos-titulos").append("<li><a href='#"+ element.getAttribute("id")+"'> "+ element.textContent  + "</a> </li>")
+  })
+  
+
+}
 
 $( document ).ready(function() {
   let todas_imagens= $("img")
   todas_imagens.each((index, element) => {
     console.log(element)
     element.className= element.className + " img-fluid"
-    // element = element.className + " img-fluid"
-
-    // console.log(element.className + " img-fluid")
   })
+
+  pegar_titulos();
+
+
 });
+
