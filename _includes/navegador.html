@@ -2,10 +2,21 @@
 
 <div class = "menu">
     {% for author in include.menu  %}
+
+    {% if author.title != 'index' %}
     <div class ="menu-itens {% if author.url == page.url %} select-item {% endif %}" >
       <a href="{{ author.url }}" >{{ author.title }}</a>
     </div>
+    {% endif %}
+
+
     {% endfor %}
+
+    <a href="/">
+    <img class="card-img-top img-fluid" src="/assets/coruja-cabeca.png"
+            style=" background: #c8c8c8fd; padding: 10px 10px 10px 10px;" alt="Card image cap"></div>
+      <div>
+        </a>
 
 
 </div>

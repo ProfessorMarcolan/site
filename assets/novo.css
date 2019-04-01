@@ -5,7 +5,8 @@
 
  .serie{
    padding: 10px 0px 0px 10px;
-   background: rgb(29, 50, 145);
+   /* background: rgb(29, 50, 145); */
+   background: hsla(180, 2%, 11%, 0.288) ;
    margin:  10px 10px 10px 10px;
  }
 
@@ -22,11 +23,13 @@
 
  .col-sm-4{
    padding: 10px 10px 10px 10px;
+
  }
  .card{
    margin: 0px 5px 0 5px 0px;
    padding: 10px 10px 10px 10px;
    border-radius: 25px;
+   background: #00486bff;
  }
 .card:hover{
   background:hsl(63, 72%, 59%);;
@@ -78,7 +81,8 @@
 .header{
   padding: 10px 10px 20px 10px;
     color: beige;
-    background: #343a40;
+    /* background: #343a40; */
+    background: rgb(1, 35, 53);
 }
 
 /* img-fluid */
@@ -101,11 +105,24 @@
 
 .codigo-path{
   text-align: right;
- background: hsl(234, 100%, 50%);
+  background: #00486bff;
  margin: -15px;
  padding: 0px 10px 0px 0px;
  
 }
+
+
+h2{
+  font-size: 35px;
+  color: beige;
+}
+
+p {
+
+  text-align: justify;
+
+}
+
 
 
 
@@ -118,17 +135,23 @@ body{
   padding: 10px 10px 10px 10px; 
   background: hsla(180, 2%, 11%, 0.288) ;
   color: rgb(216, 216, 216);
-  font-size: 22px;
+  font-size: 20px;
   font-family: "source sans pro";
 
 }
 
 /* menu */
+.card-img-top{
+  max-width: 300;
+  max-height: 300;
+
+}
 
 .menu{
  padding: 5px 5px 5px 5px;
   background: rgba(37, 36, 36, 0.788);
   display: fixed;
+  font-size: 18px;
 }
 
 .menu-itens{
@@ -155,4 +178,9 @@ body{
   padding: 5px 5px;
   /* color: #fff; */
 
+}
+
+
+.container{
+  max-width: 1300px;
 }
