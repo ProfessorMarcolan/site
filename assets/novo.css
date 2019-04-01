@@ -185,3 +185,16 @@ body{
 .container{
   max-width: 1300px;
 }
+
+/* 
+.sticky {
+  position: sticky;
+  background: red;
+  top: 0;
+  padding: 10px;
+  color: white;
+} */
+
+.sticky-offset {
+  padding-top: 200px;
+}

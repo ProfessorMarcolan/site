@@ -108,3 +108,12 @@ $( document ).ready(function() {
 
 });
 
+
+function deixar_botao(){
+
+  console.log("oi")
+
+  $("#set-stick").addClass("sticky-top")
+
+}
+

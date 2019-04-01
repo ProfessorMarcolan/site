@@ -54,12 +54,23 @@ defaults:
     values:
       layout: "post"
 
+
   - scope:
       path: ""
       type: "py"
     values:
       layout: "post"
       color : red
+      seletor: py
+
+  - scope:
+      path: ""
+      type: "git"
+    values:
+      layout: "post"
+      color : red
+      seletor: git
+
 
 #   # --- Collections ---
 # collections:
