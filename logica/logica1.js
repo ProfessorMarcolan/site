@@ -71,11 +71,14 @@ $.ajax({url: "/figuras/2019-03-22-oi-joao.json"}).done(function( data ) {
 
 
 
-function set_all_codigos(codigos){
-  console.log(codigos)
+function set_all_codigos(text){
 
-  let path = codigos["path_original"]
-  codigos["codes"].forEach(element => {
+  let a =text.replace(/=>/g,":")
+  console.log(a)
+  let teste_json = JSON.parse(a)
+  console.log(teste_json)
+  let path = teste_json["path_original"]
+  teste_json["codes"].forEach(element => {
     // console.log(element)
     console.log( path + element["path"])
     pega_code(element["id"],path + element["path"], element["numero"]);

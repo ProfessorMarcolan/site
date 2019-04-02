@@ -13,7 +13,8 @@
 </body>
 
 <footer>
-        {% include footer.html %}
+        {% capture codg %}{{ page.code }} {% endcapture %}
+        {% include footer.html code= codg %}
 </footer>
 
 </html>
