@@ -198,3 +198,9 @@ body{
 .sticky-offset {
   padding-top: 200px;
 }
+
+.video-pop{
+  background: #111;
+  margin: 20px 60px 20px 100px;
+
+}

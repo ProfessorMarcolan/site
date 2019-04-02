@@ -10,7 +10,7 @@ author: "Joao"
   
   <div class="container ">
 
-    <div id= "set-stick" class="tes1">
+    <div id= "set-stick" class="">
     <div class="header">
       <div class="row">
         <div class="col">
@@ -21,22 +21,28 @@ author: "Joao"
             </p>
         </div>
 
+        {% if page.video.ligado == true %}
         <div class="col">
-          <!-- <img class="card-img-top img-fluid sticky-top" src=" {{page.top-source}}" alt="Card image cap"> -->
-
-          <iframe allow="autoplay; encrypted-media" 
+          <div  class ="video-pop">
+              <iframe width="560" height="315" src="{{page.video.url}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <!-- <iframe allow="autoplay; encrypted-media" 
           allowfullscreen="" class="__youtube_prefs__" 
           data-no-lazy="1" data-skipgform_ajax_framebjll="" 
           height="360" id="_ytid_70346" 
           src="https://www.youtube.com/embed/8AEfxb_PVa0?enablejsapi=1&amp;autoplay=0&amp;cc_load_policy=0&amp;iv_load_policy=1&amp;loop=0&amp;modestbranding=0&amp;rel=1&amp;showinfo=1&amp;fs=1&amp;playsinline=0&amp;autohide=2&amp;theme=dark&amp;color=red&amp;controls=2&amp;" title="YouTube player" width="640">
-          </iframe>
+          </iframe> -->
           <button type="button" class="btn btn-primary" onclick="deixar_botao()">Deixar o video acompanhando post</button>
         </div>
 
       </div>
-    </div>
-    <div class="espcaco-invisivel" style="padding: 20px 20px 20px 20px; background:rgba(255, 0, 0, 0);">
-        
+
+      {% elsif page.image-intro.ligado == true %}
+      <div class="col">
+        <img src="{{page.image-intro.url}}" class="img-fluid" alt="">
+        </div>
+      {% endif %}
+
+      </div>
     </div>
 
   </div>

@@ -108,12 +108,21 @@ $( document ).ready(function() {
 
 });
 
-
+let ligado =false;
 function deixar_botao(){
 
   console.log("oi")
 
-  $("#set-stick").addClass("sticky-top")
+  if(ligado === false){
+    $("#set-stick").addClass("fixed-bottom video-pop")
+    ligado = true;
 
+  }else{
+    $("#set-stick").removeClass("fixed-bottom video-pop")
+    ligado = false
+  }
+
+ 
+ 
 }
 
