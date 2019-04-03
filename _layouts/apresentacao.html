@@ -1,15 +1,86 @@
 
-<div id="slides">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+
+    {% include google.html %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css" integrity="sha256-P8k8w/LewmGk29Zwz89HahX3Wda5Bm8wu2XkCC0DL9s=" crossorigin="anonymous" />    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.js" integrity="sha256-yDarFEUo87Z0i7SaC6b70xGAKCghhWYAZ/3p+89o4lE=" crossorigin="anonymous"></script> -->
+
+<script src="/logica/logica1.js"></script>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+><script src="/assets/prism.js"></script>
+
+
+
+
+ <link rel="stylesheet" href="/assets/novo.css"> 
+
     
-    {{content}}
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <link href="/assets/screen.css" type="text/css" rel="stylesheet" media="Screen,projection">
+    
+    <script src="/logica/logica1.js"></script>
+
+    
 
 
-</div>
+</head>
+<body>
+        <div id="slides">
+    
+                {{content}}
+            
+            
+            </div>
+    
+</body>
+
+<footer>
+
+    
+
+    <script> 
+    let todas_imagens= $("div.paragrafo")
+            todas_imagens.each((index, element) => {
+              console.log(element)
+              element.className= "slide"
+            })
+        
+    </script>
+        <script type="text/javascript" src="/assets/jquery.presentation.js"></script>
+        <!-- <script type="text/javascript" src="/assets/global.js"></script> -->
+
+        <link href="/assets/prism.css" rel="stylesheet" />
+
+        <script>
+        $('#slides').presentation();
+        </script>
+        
+       
+    </footer>
+
+    {% capture codg %}{{ page.code }} {% endcapture %}
+    {% include footer.html code= codg %}
+
+</html>
 
 
-<script>
 
 
 
 
-</script>
+

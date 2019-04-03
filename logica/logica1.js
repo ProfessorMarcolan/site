@@ -113,6 +113,9 @@ $( document ).ready(function() {
   pegar_titulos();
 
 
+  // $("a[rel^='prettyPhoto']").prettyPhoto();
+
+
 });
 
 let ligado =false;
